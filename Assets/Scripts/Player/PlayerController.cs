@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
+    PlayerStats stats;
 
     //Movement Values
     Vector2 moveDir;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
+        stats = GetComponent<PlayerStats>();
     }
 
     // Start is called before the first frame update
