@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
 
     [SerializeField] PlayerController player;
+    [SerializeField] TrinketManager placer;
 
 
     public static GameManager Instance;
@@ -31,6 +32,12 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void PlaceTrinket(int trinketIndex, float x, float y, float z)
+    {
+        Vector3 location = new Vector3(x, y, z);
+        placer.Place(trinketIndex, location); 
     }
 
     public Vector3 GetPlayerLocation()

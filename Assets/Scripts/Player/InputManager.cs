@@ -12,4 +12,12 @@ public class InputManager : MonoBehaviour
     {
         controller.DoMovement(context.ReadValue<Vector2>()); 
     }
+
+    public void RegisterClick(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            controller.DoClick(Mouse.current.position.ReadValue());
+        }
+    }
 }

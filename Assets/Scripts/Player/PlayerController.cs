@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
     PlayerStats stats;
+    Camera cam;
 
     //Movement Values
     Vector2 moveDir;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
+        cam = Camera.main;
         rb = GetComponent<Rigidbody>();
         stats = GetComponent<PlayerStats>();
     }
@@ -47,6 +49,19 @@ public class PlayerController : MonoBehaviour
             Vector3 clampedVel = vel.normalized * moveSpeed;
             rb.velocity = new Vector3(clampedVel.x, rb.velocity.y, clampedVel.z);
         }
+    }
+
+    public void DoClick(Vector3 mouseLoc)
+    {
+        Ray ray = cam.ScreenPointToRay(mouseLoc);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit))
+        {
+            ICommand placeCommand = new PlaceCommand(hit.point.x, hit.point.y, hit.point.z);
+            placeCommand.Execute();
+        }
+
     }
 
     public void DoMovement(Vector2 value)
