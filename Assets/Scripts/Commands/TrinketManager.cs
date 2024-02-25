@@ -5,13 +5,16 @@ using UnityEngine;
 public class TrinketManager : MonoBehaviour
 {
     [SerializeField] GameObject[] trinketPrefabs;
+    [SerializeField] GameObject[] trinketShadows;
     [SerializeField] GameObject cursor;
+    [SerializeField] Grid grid;
     Camera cam;
     LayerMask placeLayer;
 
     //Trinket values
     Vector3 cursorPos;
     int selectedTrinket;
+    GameObject currentShadow; 
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +23,16 @@ public class TrinketManager : MonoBehaviour
         placeLayer = LayerMask.GetMask("Place");
 
         selectedTrinket = 0;
+        currentShadow = trinketShadows[selectedTrinket];
     }
 
     // Update is called once per frame
     void Update()
     {
+        Vector3Int gridPos = grid.WorldToCell(cursorPos);
         cursor.transform.position = cursorPos;
+        currentShadow.transform.position = grid.GetCellCenterWorld(gridPos); 
+
     }
     
     public void UpdateCursorPos(Vector2 mousePos)
@@ -41,6 +48,6 @@ public class TrinketManager : MonoBehaviour
 
     public void Place()
     {
-        Instantiate(trinketPrefabs[selectedTrinket], cursorPos, UnityEngine.Quaternion.identity);
+        Instantiate(trinketPrefabs[selectedTrinket], currentShadow.transform.position, UnityEngine.Quaternion.identity);
     }
 }
