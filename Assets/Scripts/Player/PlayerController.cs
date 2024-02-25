@@ -13,8 +13,6 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDir;
     float moveSpeed = 15;
     float moveDrag = 10;
-    
-
 
     private void Awake()
     {
@@ -38,7 +36,6 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
     void ClampSpeed()
@@ -51,16 +48,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void DoClick(Vector3 mouseLoc)
-    {
-        Ray ray = cam.ScreenPointToRay(mouseLoc);
-        RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit))
-        {
-            ICommand placeCommand = new PlaceCommand(hit.point.x, hit.point.y, hit.point.z);
-            placeCommand.Execute();
-        }
+    public void DoClick()
+    {
+        ICommand placeCommand = new PlaceCommand();
+        placeCommand.Execute();
 
     }
 

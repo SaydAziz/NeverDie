@@ -34,10 +34,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public void PlaceTrinket(int trinketIndex, float x, float y, float z)
+    public void PlaceTrinket()
     {
-        Vector3 location = new Vector3(x, y, z);
-        placer.Place(trinketIndex, location); 
+        placer.Place(); 
     }
 
     public Vector3 GetPlayerLocation()
