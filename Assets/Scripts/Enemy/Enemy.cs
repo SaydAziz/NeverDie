@@ -35,7 +35,13 @@ public class Enemy: MonoBehaviour, IDamageable
 
     private void FixedUpdate()
     {
+        if (health <= 0 )
+        {
+            Die();
+        }
+
         playerInRange = Physics.CheckSphere(transform.position, attackRange, playerMask); 
+
         if (!playerInRange)
         {
             agent.SetDestination(GameManager.Instance.GetPlayerLocation());
