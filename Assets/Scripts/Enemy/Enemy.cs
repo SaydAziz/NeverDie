@@ -9,10 +9,10 @@ public class Enemy: MonoBehaviour, IDamageable
     LayerMask playerMask;
 
     //Stats
-    float health;
-    float damage;
-    float attackCooldown;
-    float attackRange;
+    [SerializeField] float health;
+    [SerializeField] float damage;
+    [SerializeField] float attackCooldown;
+    [SerializeField] float attackRange;
 
     //function
     bool canAttack = true;
@@ -21,11 +21,7 @@ public class Enemy: MonoBehaviour, IDamageable
     void Awake()
     {
         playerMask = LayerMask.GetMask("Player");
-
-        health = 100;
-        damage = 20;
-        attackCooldown = 1;
-        attackRange = 1;
+        
     }
 
     private void OnDrawGizmos()

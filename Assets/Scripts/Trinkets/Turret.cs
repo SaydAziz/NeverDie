@@ -19,9 +19,6 @@ public class Turret : Trinket
     // Start is called before the first frame update
     void Start()
     {
-        trinketName = "Turret";
-        trinketRange = 4;
-
         range.radius = trinketRange;
     }
 

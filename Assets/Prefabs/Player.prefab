@@ -62,6 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42a4787d3b18fa34091d5822472ef621, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moveSpeed: 8
 --- !u!114 &1789257931077407452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +104,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 4d8e5241-c348-4e08-964d-43179108501b
     m_ActionName: Base/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: d925b5ea-62d7-4c35-a548-ff985eac3909
+    m_ActionName: Base/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: fa9a673c-273e-4ef9-b6a6-23afb8d01ec5
+    m_ActionName: Base/CursorMove[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Base
@@ -148,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 4192415915766402568}
+  tManager: {fileID: 0}
 --- !u!65 &5975555517249896108
 BoxCollider:
   m_ObjectHideFlags: 0

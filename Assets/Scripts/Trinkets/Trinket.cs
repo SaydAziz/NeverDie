@@ -7,6 +7,6 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshObstacle))]
 public class Trinket: MonoBehaviour
 {
-    protected string trinketName;
-    protected float trinketRange;    
+    [SerializeField] protected string trinketName;
+    [SerializeField] protected float trinketRange;    
 }

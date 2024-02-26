@@ -15,7 +15,7 @@ public class Projectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.parent = null; 
+        transform.parent = null;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,7 +31,7 @@ public class Projectile : MonoBehaviour
     {
         Vector3 targetLoc = new Vector3 (targetEnemy.transform.position.x, transform.position.y, targetEnemy.transform.position.z);
         transform.LookAt(targetLoc);
-        rb.AddForce(transform.forward * projectileSpeed);
+        rb.velocity = transform.forward * projectileSpeed;
     }
 
     public void Initialize(GameObject target, float damage)

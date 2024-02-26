@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
 
     //Movement Values
     Vector2 moveDir;
-    float moveSpeed = 15;
+    [SerializeField] float moveSpeed = 15;
     float moveDrag = 10;
 
     private void Awake()
