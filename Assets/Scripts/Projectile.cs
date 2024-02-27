@@ -11,11 +11,13 @@ public class Projectile : MonoBehaviour
     GameObject targetEnemy;
     float projectileSpeed = 30;
     float projectileDamage;
+    float lifeTime = 3;
 
     // Start is called before the first frame update
     void Start()
     {
         transform.parent = null;
+        Invoke("SelfDestruct", lifeTime);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,6 +45,10 @@ public class Projectile : MonoBehaviour
     void DoHit(Enemy enemy)
     {
         enemy.TakeDamage(projectileDamage);
+        Destroy(this.gameObject);
+    }
+    void SelfDestruct()
+    {
         Destroy(this.gameObject);
     }
 }

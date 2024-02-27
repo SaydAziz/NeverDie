@@ -50,7 +50,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 7874426526856822165}
   health: 10
-  damage: 100
+  damage: 10
   attackCooldown: 1
   attackRange: 3
 --- !u!65 &735212102014901743

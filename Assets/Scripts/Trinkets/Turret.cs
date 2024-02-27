@@ -10,38 +10,31 @@ public class Turret : Trinket
     [SerializeField] SphereCollider range;
     [SerializeField] float damage = 10;
     [SerializeField] float fireRate = 5f;
-        
 
+
+    LayerMask enemyMask;
     GameObject target;
     Vector3 targetPos;
     bool canShoot = true;
+    Collider[] shootQueue;
 
     // Start is called before the first frame update
     void Start()
     {
         range.radius = trinketRange;
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.GetComponent<Enemy>() != null)
-        {
-            target = other.gameObject;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.GetComponent<Enemy>() != null)
-        {
-            target = null;
-        }
+        enemyMask = LayerMask.GetMask("Enemy");
     }
 
     void FixedUpdate()
     {
-        if (target != null)
+        if (target == null)
         {
+            shootQueue = Physics.OverlapSphere(transform.position, trinketRange, enemyMask);
+        }
+
+        if (shootQueue != null)
+        {
+            target = shootQueue[0].gameObject;
             targetPos = new Vector3(target.transform.position.x, turretPivot.transform.position.y, target.transform.position.z);
             turretPivot.transform.LookAt(targetPos);
 
