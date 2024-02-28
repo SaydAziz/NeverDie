@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem.Controls;
+using System;
 
 [RequireComponent(typeof(PlayerInput))]
 public class InputManager : MonoBehaviour
@@ -13,6 +15,14 @@ public class InputManager : MonoBehaviour
     {
         Vector3 mousePos = Mouse.current.position.ReadValue();
         return mousePos;
+    }
+
+    public void RegisterNumber(InputAction.CallbackContext context)
+    {
+        string pressedButton = ((KeyControl)context.control).keyCode.ToString();
+        pressedButton = pressedButton.Substring(pressedButton.Length - 1);
+
+        controller.SelectTrinket(Int32.Parse(pressedButton));
     }
 
     public void RegisterMovement(InputAction.CallbackContext context)

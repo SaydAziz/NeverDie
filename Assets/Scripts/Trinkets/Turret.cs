@@ -4,32 +4,33 @@ using UnityEngine;
 
 public class Turret : Trinket 
 {
-    [SerializeField] GameObject bulletPrefab;
-    [SerializeField] GameObject turretPivot;
-    [SerializeField] Transform bulletSpawn;
-    [SerializeField] SphereCollider range;
-    [SerializeField] float damage = 10;
-    [SerializeField] float fireRate = 5f;
+    [SerializeField] protected GameObject bulletPrefab;
+    [SerializeField] protected GameObject turretPivot;
+    [SerializeField] protected Transform bulletSpawn;
+    [SerializeField] protected SphereCollider range;
+    [SerializeField] protected float damage = 10;
+    [SerializeField] protected float fireRate = 5f;
 
 
-    LayerMask enemyMask;
-    GameObject target;
-    Vector3 targetPos;
-    bool canShoot = true;
-    Collider[] shootQueue;
+    protected LayerMask targetMask;
+    protected GameObject target;
+    private Vector3 targetPos;
+    protected bool canShoot = true;
+    private Collider[] shootQueue;
 
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
         range.radius = trinketRange;
-        enemyMask = LayerMask.GetMask("Enemy");
+        targetMask = LayerMask.GetMask("Enemy");
+        trinketPrice = 50;
     }
 
     void FixedUpdate()
     {
         if (target == null)
         {
-            shootQueue = Physics.OverlapSphere(transform.position, trinketRange, enemyMask);
+            shootQueue = Physics.OverlapSphere(transform.position, trinketRange, targetMask);
         }
 
         if (shootQueue != null)
@@ -45,7 +46,7 @@ public class Turret : Trinket
         }
     }
 
-    void Shoot()
+    protected virtual void Shoot()
     {
         GameObject currentBullet = Instantiate(bulletPrefab, bulletSpawn);
         currentBullet.GetComponent<Projectile>().Initialize(target, damage);
@@ -53,7 +54,7 @@ public class Turret : Trinket
         Invoke("ResetShot", fireRate * 0.1f);
     }
 
-    void ResetShot()
+    protected virtual void ResetShot()
     {
         canShoot = true;
     }

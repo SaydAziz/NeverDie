@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
         
     }
 
+    public int UpdateTrinketSelection(int selection)
+    {
+        return placer.SelectTrinket(selection);
+    }
+
     public void PlaceTrinket()
     {
         placer.Place(); 

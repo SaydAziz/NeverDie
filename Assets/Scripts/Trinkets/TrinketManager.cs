@@ -21,7 +21,6 @@ public class TrinketManager : MonoBehaviour
     {
         cam = Camera.main; 
         placeLayer = LayerMask.GetMask("Place");
-
         selectedTrinket = 0;
         currentShadow = trinketShadows[selectedTrinket];
     }
@@ -44,6 +43,16 @@ public class TrinketManager : MonoBehaviour
         {
             cursorPos = hit.point;
         }
+    }
+
+    public int SelectTrinket(int trinket)
+    {
+        currentShadow.SetActive(false);
+        selectedTrinket = trinket - 1;
+        currentShadow = trinketShadows[trinket - 1];
+        currentShadow.SetActive(true);
+
+        return trinketPrefabs[selectedTrinket].GetComponent<Trinket>().trinketPrice;
     }
 
     public void Place()

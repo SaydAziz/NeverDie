@@ -48,12 +48,18 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SelectTrinket(int selection)
+    {
+        stats.trinketPrice = GameManager.Instance.UpdateTrinketSelection(selection);
+    }
 
     public void DoClick()
     {
-        ICommand placeCommand = new PlaceCommand();
-        placeCommand.Execute();
-
+        if (stats.Purchase())
+        {
+            ICommand placeCommand = new PlaceCommand();
+            placeCommand.Execute();
+        }
     }
 
     public void DoMovement(Vector2 value)
