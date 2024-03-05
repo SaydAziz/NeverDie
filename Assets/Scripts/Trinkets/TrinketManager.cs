@@ -45,14 +45,12 @@ public class TrinketManager : MonoBehaviour
         }
     }
 
-    public int SelectTrinket(int trinket)
+    public void SelectTrinket(int trinket)
     {
         currentShadow.SetActive(false);
         selectedTrinket = trinket - 1;
         currentShadow = trinketShadows[trinket - 1];
         currentShadow.SetActive(true);
-
-        return trinketPrefabs[selectedTrinket].GetComponent<Trinket>().trinketPrice;
     }
 
     public void Place()

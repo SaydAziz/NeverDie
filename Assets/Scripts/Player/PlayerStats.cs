@@ -11,13 +11,10 @@ public class PlayerStats : MonoBehaviour, IDamageable
     public float health { get; private set; }
     public float coins { get; private set; }
 
-    public float trinketPrice;
-
     private void Start()
     {
         health = 100;
         coins = 150;
-        trinketPrice = 50;
 
         coinsText.text = "Coins: " + coins;
     }
@@ -44,9 +41,9 @@ public class PlayerStats : MonoBehaviour, IDamageable
 
     public bool Purchase()
     {
-        if (0 <= (coins - trinketPrice))
+        if (0 <= (coins - GameManager.Instance.trinketPrice))
         {
-            coins -= trinketPrice;
+            coins -= GameManager.Instance.trinketPrice;
             coinsText.text = "Coins: " + coins;
             return true;
         }

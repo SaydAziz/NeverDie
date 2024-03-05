@@ -40,7 +40,10 @@ public class Enemy: MonoBehaviour, IDamageable
 
         if (!playerInRange)
         {
-            agent.SetDestination(GameManager.Instance.GetPlayerLocation());
+            if (agent.isActiveAndEnabled)
+            {
+                agent.SetDestination(GameManager.Instance.GetPlayerLocation());
+            } 
         }
         else
         {

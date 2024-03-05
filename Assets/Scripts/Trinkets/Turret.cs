@@ -18,12 +18,17 @@ public class Turret : Trinket
     protected bool canShoot = true;
     private Collider[] shootQueue;
 
-    // Start is called before the first frame update
-    protected virtual void Start()
+    protected void Awake()
     {
+        trinketPrice = 50;
+    }
+
+    // Start is called before the first frame update
+    protected override void Start()
+    {       
         range.radius = trinketRange;
         targetMask = LayerMask.GetMask("Enemy");
-        trinketPrice = 50;
+        base.Start();
     }
 
     void FixedUpdate()
@@ -33,7 +38,7 @@ public class Turret : Trinket
             shootQueue = Physics.OverlapSphere(transform.position, trinketRange, targetMask);
         }
 
-        if (shootQueue != null)
+        if (shootQueue[0] != null)
         {
             target = shootQueue[0].gameObject;
             targetPos = new Vector3(target.transform.position.x, turretPivot.transform.position.y, target.transform.position.z);
@@ -43,6 +48,10 @@ public class Turret : Trinket
             {
                 Shoot();
             }
+        }
+        else
+        {
+            target = null;
         }
     }
 

@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     public void SelectTrinket(int selection)
     {
-        stats.trinketPrice = GameManager.Instance.UpdateTrinketSelection(selection);
+        GameManager.Instance.UpdateTrinketSelection(selection);
     }
 
     public void DoClick()

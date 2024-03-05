@@ -4,11 +4,21 @@ using UnityEngine;
 
 public class HealFountain : Turret 
 {
+    protected void Awake()
+    {
+        trinketPrice = 150;
+    }
+
     protected override void Start()
     {
         range.radius = trinketRange;
         targetMask = LayerMask.GetMask("Player");
-        trinketPrice = 150;
+        base.Start();
+    }
+
+    private void Update()
+    {
+        Debug.Log(trinketPrice);
     }
 
     protected override void Shoot()

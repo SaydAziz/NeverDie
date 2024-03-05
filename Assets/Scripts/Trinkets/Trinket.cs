@@ -10,5 +10,10 @@ public class Trinket: MonoBehaviour
     [SerializeField] public string trinketName { get; protected set; }
     [SerializeField] public int trinketPrice { get; protected set; }    
 
-    [SerializeField] protected float trinketRange;    
+    [SerializeField] protected float trinketRange;
+
+    protected virtual void Start()
+    {
+        GameManager.Instance.SetTrinketPrice(trinketPrice);
+    }
 }

@@ -23,6 +23,16 @@ public class InputManager : MonoBehaviour
         pressedButton = pressedButton.Substring(pressedButton.Length - 1);
 
         controller.SelectTrinket(Int32.Parse(pressedButton));
+
+        //THIS IS JUST FOR POC I NEED TO REDESIGN THE SYSTEMS THIS IS BAAAAAAAAAAAAAAAAAAAAAAAAAD
+        if (pressedButton == "1")
+        {
+            GameManager.Instance.SetTrinketPrice(50);
+        }
+        else if (pressedButton == "2")
+        {
+            GameManager.Instance.SetTrinketPrice(150);
+        }
     }
 
     public void RegisterMovement(InputAction.CallbackContext context)

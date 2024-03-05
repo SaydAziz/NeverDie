@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] PlayerController player;
     [SerializeField] TrinketManager placer;
 
+    public int trinketPrice { get; private set; }
 
     public static GameManager Instance;
     private void Awake()
@@ -25,7 +26,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        trinketPrice = 50; 
     }
 
     // Update is called once per frame
@@ -34,9 +35,9 @@ public class GameManager : MonoBehaviour
         
     }
 
-    public int UpdateTrinketSelection(int selection)
+    public void UpdateTrinketSelection(int selection)
     {
-        return placer.SelectTrinket(selection);
+        placer.SelectTrinket(selection);
     }
 
     public void PlaceTrinket()
@@ -47,5 +48,10 @@ public class GameManager : MonoBehaviour
     public Vector3 GetPlayerLocation()
     {
         return player.transform.position;
+    }
+
+    public void SetTrinketPrice(int price)
+    {
+        trinketPrice = price;
     }
 }
