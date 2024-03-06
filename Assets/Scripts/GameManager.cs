@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] PlayerController player;
+    [SerializeField] PlayerStats player;
     [SerializeField] TrinketManager placer;
 
     public int trinketPrice { get; private set; }
@@ -33,6 +33,11 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void AddCoin(int value)
+    {
+        player.AddCoin(value);
     }
 
     public void UpdateTrinketSelection(int selection)

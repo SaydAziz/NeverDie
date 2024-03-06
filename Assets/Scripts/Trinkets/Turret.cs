@@ -38,7 +38,7 @@ public class Turret : Trinket
             shootQueue = Physics.OverlapSphere(transform.position, trinketRange, targetMask);
         }
 
-        if (shootQueue[0] != null)
+        if (shootQueue.Length > 0)
         {
             target = shootQueue[0].gameObject;
             targetPos = new Vector3(target.transform.position.x, turretPivot.transform.position.y, target.transform.position.z);

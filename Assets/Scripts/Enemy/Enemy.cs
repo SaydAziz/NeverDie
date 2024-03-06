@@ -88,6 +88,7 @@ public class Enemy: MonoBehaviour, IDamageable
 
     public void Die()
     {
+        GameManager.Instance.AddCoin(1);
         Destroy(this.gameObject);
     }
 }
