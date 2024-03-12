@@ -31,6 +31,10 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (targetEnemy == null)
+        {
+            Destroy(this.gameObject);
+        }
         Vector3 targetLoc = new Vector3 (targetEnemy.transform.position.x, transform.position.y, targetEnemy.transform.position.z);
         transform.LookAt(targetLoc);
         rb.velocity = transform.forward * projectileSpeed;

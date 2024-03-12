@@ -9,11 +9,12 @@ public class Trinket: MonoBehaviour
 {
     [SerializeField] public string trinketName { get; protected set; }
     [SerializeField] public int trinketPrice { get; protected set; }    
+    [SerializeField] public int trinketWood{ get; protected set; }    
 
     [SerializeField] protected float trinketRange;
 
     protected virtual void Start()
     {
-        GameManager.Instance.SetTrinketPrice(trinketPrice);
+        //GameManager.Instance.SetTrinketPrice(trinketPrice, trinketWood);
     }
 }

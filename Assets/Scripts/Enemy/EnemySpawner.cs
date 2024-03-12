@@ -7,6 +7,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] enemyPrefabs;
+    [SerializeField] GameObject[] resourcePrefabs;
     [SerializeField] Collider spawnPerimeter;
     [SerializeField] TMP_Text waveText;
 
@@ -23,6 +24,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int maxCrowd;
     [SerializeField] int waveTime;
 
+    [SerializeField] int woodMax;
+    List<GameObject> woodCount = new List<GameObject>(); //THIS IS SUUUUUUUUUUUUPER BAD 
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +35,7 @@ public class EnemySpawner : MonoBehaviour
         waveScale = 1;
         canSpawn = true;
         inWave = false;
+
 
         waveText.text = currentWave.ToString();
 
@@ -51,17 +56,32 @@ public class EnemySpawner : MonoBehaviour
 
     void StartWave()
     {
-        waveText.text = currentWave.ToString();
+        //THIS IS ALSO SUPER FRICKING BAD GOD PLEASE FORGIVE ME FOR MY SINS
+        for (int i = 0;i < woodCount.Count - 1; i++)
+        {
+            if (woodCount[i] == null)
+            {
+                woodCount.RemoveAt(i); 
+            }
+        }
+        while (woodCount.Count < woodMax)
+        {
+            Vector3 pos = GetRandomLoc();
+            pos.y = 0;
+            woodCount.Add(Instantiate(resourcePrefabs[0], pos, Quaternion.identity));
+        }
+        waveText.text = "Wave: " + currentWave.ToString();
         inWave = true;
         Invoke("EndWave", waveTime);
     }
 
     void EndWave()
     {
+        waveText.text = "CALM";
         inWave = false;
         currentWave++;
         spawnInterval = spawnInterval * Mathf.Pow(scaleFactor, -currentWave); 
-        Invoke("StartWave", 10);
+        Invoke("StartWave", 20);
     }
 
     void SpawnEnemy(GameObject enemy)
@@ -72,7 +92,7 @@ public class EnemySpawner : MonoBehaviour
         for (int i = 0; i < crowdSize; i++)
         {
             spawnCenter += new Vector3(Random.Range(-crowdSpread, crowdSpread), 0, Random.Range(-crowdSpread, crowdSpread));
-            Instantiate(enemy, spawnCenter, Quaternion.identity);
+            Instantiate(enemy, spawnCenter, Quaternion.identity, this.transform);
         }
         Invoke("ResetSpawnInterval", spawnInterval);
     }

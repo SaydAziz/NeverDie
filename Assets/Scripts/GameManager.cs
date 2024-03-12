@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] TrinketManager placer;
 
     public int trinketPrice { get; private set; }
+    public int trinketWood{ get; private set; }
 
     public static GameManager Instance;
     private void Awake()
@@ -27,6 +28,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         trinketPrice = 50; 
+        trinketWood = 20; 
     }
 
     // Update is called once per frame
@@ -55,8 +57,9 @@ public class GameManager : MonoBehaviour
         return player.transform.position;
     }
 
-    public void SetTrinketPrice(int price)
+    public void SetTrinketPrice(int price, int wood)
     {
         trinketPrice = price;
+        trinketWood = wood;
     }
 }

@@ -27,11 +27,11 @@ public class InputManager : MonoBehaviour
         //THIS IS JUST FOR POC I NEED TO REDESIGN THE SYSTEMS THIS IS BAAAAAAAAAAAAAAAAAAAAAAAAAD
         if (pressedButton == "1")
         {
-            GameManager.Instance.SetTrinketPrice(50);
+            GameManager.Instance.SetTrinketPrice(50, 20);
         }
         else if (pressedButton == "2")
         {
-            GameManager.Instance.SetTrinketPrice(150);
+            GameManager.Instance.SetTrinketPrice(150, 40);
         }
     }
 
