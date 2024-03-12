@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour, IDamageable
 {
     [SerializeField] private TMP_Text coinsText;
     [SerializeField] private TMP_Text woodText;
+    [SerializeField] private Slider healthBar;
 
     public float health { get; private set; }
     public int coins { get; private set; }
@@ -19,12 +21,14 @@ public class PlayerStats : MonoBehaviour, IDamageable
         coins = 100;
         wood = 20;
 
+        healthBar.value = health;
         coinsText.text = "Coins: " + coins;
         woodText.text = "Wood: " + wood;
     }
 
     private void FixedUpdate()
     {
+        healthBar.value = health / 100;
         if (health <= 0)
         {
             Die();

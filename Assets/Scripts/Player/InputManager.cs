@@ -17,6 +17,11 @@ public class InputManager : MonoBehaviour
         return mousePos;
     }
 
+    private void Update()
+    {
+        tManager.UpdateCursorPos(Input.mousePosition);
+    }
+
     public void RegisterNumber(InputAction.CallbackContext context)
     {
         string pressedButton = ((KeyControl)context.control).keyCode.ToString();

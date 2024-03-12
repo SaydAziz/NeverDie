@@ -39,7 +39,13 @@ public class EnemySpawner : MonoBehaviour
 
         waveText.text = currentWave.ToString();
 
-        Invoke("StartWave", 1);
+        while (woodCount.Count < woodMax)
+        {
+            Vector3 pos = GetRandomLoc();
+            pos.y = 0;
+            woodCount.Add(Instantiate(resourcePrefabs[0], pos, Quaternion.identity));
+        }
+        Invoke("StartWave", 10);
     }
 
     // Update is called once per frame
@@ -57,13 +63,18 @@ public class EnemySpawner : MonoBehaviour
     void StartWave()
     {
         //THIS IS ALSO SUPER FRICKING BAD GOD PLEASE FORGIVE ME FOR MY SINS
-        for (int i = 0;i < woodCount.Count - 1; i++)
+        //for (int i = 0;i < woodCount.Count - 1; i++)
+        //{
+        //    if (woodCount[i] == null)
+        //    {
+        //        woodCount.RemoveAt(i); 
+        //    }
+        //}
+        foreach (GameObject go in woodCount)
         {
-            if (woodCount[i] == null)
-            {
-                woodCount.RemoveAt(i); 
-            }
+            Destroy(go);
         }
+        woodCount.Clear();
         while (woodCount.Count < woodMax)
         {
             Vector3 pos = GetRandomLoc();
