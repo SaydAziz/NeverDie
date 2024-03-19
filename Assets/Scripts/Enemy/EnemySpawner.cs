@@ -1,119 +1,30 @@
-using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner: Spawner 
 {
-    [SerializeField] GameObject[] enemyPrefabs;
-    [SerializeField] GameObject[] resourcePrefabs;
-    [SerializeField] Collider spawnPerimeter;
-    [SerializeField] TMP_Text waveText;
-
-    //Spawner Values
-    bool canSpawn;
-    bool inWave;
-    int currentWave;
-    int crowdSize;
-    int waveScale;
-
-    [SerializeField] float scaleFactor;
-    [SerializeField] float spawnInterval;
     [SerializeField] int crowdSpread;
     [SerializeField] int maxCrowd;
-    [SerializeField] int waveTime;
 
-    [SerializeField] int woodMax;
-    List<GameObject> woodCount = new List<GameObject>(); //THIS IS SUUUUUUUUUUUUPER BAD 
+    PlayerSubject playerSubject;
 
+    //Spawner Values
+    int crowdSize;
 
     // Start is called before the first frame update
     void Start()
     {
-        currentWave = 0;
-        waveScale = 1;
-        canSpawn = true;
-        inWave = false;
-
-
-        waveText.text = currentWave.ToString();
-
-        while (woodCount.Count < woodMax)
-        {
-            Vector3 pos = GetRandomLoc();
-            pos.y = 0;
-            woodCount.Add(Instantiate(resourcePrefabs[0], pos, Quaternion.identity));
-        }
-        Invoke("StartWave", 10);
+        playerSubject = GameObject.Find("Player").GetComponent<Player>().playerSubject;
+        entityPool = GeneratePoolEntities(entityPrefabs[0], 40);
     }
 
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
-        if (inWave)
-        {
-            if (canSpawn)
-            {
-                SpawnEnemy(enemyPrefabs[0]);
-            }
-        }
+        
     }
-
-    void StartWave()
-    {
-        //THIS IS ALSO SUPER FRICKING BAD GOD PLEASE FORGIVE ME FOR MY SINS
-        //for (int i = 0;i < woodCount.Count - 1; i++)
-        //{
-        //    if (woodCount[i] == null)
-        //    {
-        //        woodCount.RemoveAt(i); 
-        //    }
-        //}
-        foreach (GameObject go in woodCount)
-        {
-            Destroy(go);
-        }
-        woodCount.Clear();
-        while (woodCount.Count < woodMax)
-        {
-            Vector3 pos = GetRandomLoc();
-            pos.y = 0;
-            woodCount.Add(Instantiate(resourcePrefabs[0], pos, Quaternion.identity));
-        }
-        waveText.text = "Wave: " + currentWave.ToString();
-        inWave = true;
-        Invoke("EndWave", waveTime);
-    }
-
-    void EndWave()
-    {
-        waveText.text = "CALM";
-        inWave = false;
-        currentWave++;
-        spawnInterval = spawnInterval * Mathf.Pow(scaleFactor, -currentWave); 
-        Invoke("StartWave", 20);
-    }
-
-    void SpawnEnemy(GameObject enemy)
-    {
-        canSpawn = false;
-        crowdSize = Random.Range(1, maxCrowd);
-        Vector3 spawnCenter = GetRandomLoc();
-        for (int i = 0; i < crowdSize; i++)
-        {
-            spawnCenter += new Vector3(Random.Range(-crowdSpread, crowdSpread), 0, Random.Range(-crowdSpread, crowdSpread));
-            Instantiate(enemy, spawnCenter, Quaternion.identity, this.transform);
-        }
-        Invoke("ResetSpawnInterval", spawnInterval);
-    }
-
-    void ResetSpawnInterval()
-    {
-        canSpawn = true;
-    }
-
-    Vector3 GetRandomLoc()
+    protected override Vector3 GetRandomLoc()
     {
         Vector3 colliderSize = spawnPerimeter.bounds.size;
 
@@ -121,5 +32,32 @@ public class EnemySpawner : MonoBehaviour
         float randZ = Random.Range(-colliderSize.z / 2f, colliderSize.z / 2f);
 
         return spawnPerimeter.transform.position + new Vector3(randX, 0, randZ);
+    }
+
+    public override void SpawnEntity()
+    {
+        canSpawn = false;
+        crowdSize = Random.Range(1, maxCrowd);
+        Vector3 spawnCenter = GetRandomLoc();
+        for (int i = 0; i < crowdSize; i++)
+        {
+            spawnCenter += new Vector3(Random.Range(-crowdSpread, crowdSpread), 0, Random.Range(-crowdSpread, crowdSpread));
+            GameObject entity = RequestEntity(0);
+            entity.transform.position = spawnCenter;
+        }
+    }
+
+    protected override List<GameObject> GeneratePoolEntities(GameObject entity, int numOfEntities)
+    {
+        List<GameObject> entityPool = new List<GameObject>();
+        for (int i = 0; i < numOfEntities; i++)
+        {
+            GameObject go = Instantiate(entity);
+            go.transform.parent = this.transform;
+            go.GetComponent<Enemy>().player = playerSubject;
+            go.SetActive(false);
+            entityPool.Add(go);
+        }
+        return entityPool;
     }
 }

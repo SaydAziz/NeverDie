@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 
-    [SerializeField] PlayerStats player;
+    [SerializeField] Player player;
     [SerializeField] TrinketManager placer;
 
     public int trinketPrice { get; private set; }

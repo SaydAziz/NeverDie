@@ -23,7 +23,7 @@ public class HealFountain : Turret
 
     protected override void Shoot()
     {
-        target.GetComponent<PlayerStats>().TakeDamage(5);
+        target.GetComponent<Player>().TakeDamage(5);
         canShoot = false;
         Invoke("ResetShot", fireRate * 0.1f);
     }

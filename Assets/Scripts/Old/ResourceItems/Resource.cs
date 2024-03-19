@@ -11,7 +11,7 @@ public class Resource : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        PlayerStats player = other.GetComponent<PlayerStats>();
+        Player player = other.GetComponent<Player>();
         if (player != null)
         {
             player.AddWood(amount);

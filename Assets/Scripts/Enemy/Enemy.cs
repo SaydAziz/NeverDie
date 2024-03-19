@@ -8,6 +8,8 @@ public class Enemy: MonoBehaviour, IDamageable
     [SerializeField] NavMeshAgent agent;
     LayerMask playerMask;
 
+    public PlayerSubject player;
+
     //Stats
     [SerializeField] float health;
     [SerializeField] float damage;
@@ -29,6 +31,7 @@ public class Enemy: MonoBehaviour, IDamageable
         Gizmos.DrawWireCube(new Vector3(transform.position.x, transform.position.y + 1, transform.position.z) + transform.forward, new Vector3(1f, 1f, 1f));
     }
 
+    Vector3 playerLoc;
     private void FixedUpdate()
     {
         if (health <= 0 )
@@ -42,7 +45,9 @@ public class Enemy: MonoBehaviour, IDamageable
         {
             if (agent.isActiveAndEnabled)
             {
-                agent.SetDestination(GameManager.Instance.GetPlayerLocation());
+                playerLoc.x = player.locX;
+                playerLoc.y = player.locY;
+                agent.SetDestination(playerLoc);
             } 
         }
         else
@@ -89,6 +94,7 @@ public class Enemy: MonoBehaviour, IDamageable
     public void Die()
     {
         GameManager.Instance.AddCoin(1);
-        Destroy(this.gameObject);
+        this.gameObject.SetActive(false);
+        health = 100;
     }
 }

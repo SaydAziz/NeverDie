@@ -6,22 +6,19 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     Rigidbody rb;
-    PlayerStats stats;
     Camera cam;
 
     //Movement Values
-    Vector2 moveDir;
     [SerializeField] float moveSpeed = 15;
+    Vector2 moveDir;
     float moveDrag = 10;
 
     private void Awake()
     {
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
-        stats = GetComponent<PlayerStats>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         rb.drag = moveDrag; 
@@ -31,11 +28,6 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(new Vector3(moveDir.x, 0, moveDir.y).normalized * moveSpeed * 10, ForceMode.Force);
         ClampSpeed();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     void ClampSpeed()
@@ -50,16 +42,10 @@ public class PlayerController : MonoBehaviour
 
     public void SelectTrinket(int selection)
     {
-        GameManager.Instance.UpdateTrinketSelection(selection);
     }
 
     public void DoClick()
     {
-        if (stats.Purchase())
-        {
-            ICommand placeCommand = new PlaceCommand();
-            placeCommand.Execute();
-        }
     }
 
     public void DoMovement(Vector2 value)
