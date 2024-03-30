@@ -21,6 +21,12 @@ public abstract class Spawner : MonoBehaviour
     {
         Debug.Log("Generating Pool");
         List<GameObject> entityPool = new List<GameObject>();
+        PopulatePool(entityPool, entity, numOfEntities);
+        return entityPool;
+    }
+
+    protected virtual void PopulatePool(List<GameObject> pool, GameObject entity, int numOfEntities)
+    {
         for (int i = 0; i < numOfEntities; i++)
         {
             GameObject go = Instantiate(entity);
@@ -28,7 +34,6 @@ public abstract class Spawner : MonoBehaviour
             go.SetActive(false);
             entityPool.Add(go);
         }
-        return entityPool;
     }
 
     protected GameObject RequestEntity(int entityID) 
@@ -42,9 +47,14 @@ public abstract class Spawner : MonoBehaviour
             }
         }
 
-        GameObject newEntity = Instantiate(entityPrefabs[entityID]);
-        newEntity.transform.parent = this.transform;
-        entityPool.Add(newEntity);
+        PopulatePool(entityPool, entityPool[0], 50);
+
+
+        //GameObject newEntity = Instantiate(entityPrefabs[entityID]);
+        //newEntity.transform.parent = this.transform;
+        //entityPool.Add(newEntity);
+        GameObject newEntity = entityPool[entityPool.Count - 1];
+        newEntity.SetActive(true);
         
         return newEntity;
     }

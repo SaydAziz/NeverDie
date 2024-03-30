@@ -16,7 +16,7 @@ public class EnemySpawner: Spawner
     void Start()
     {
         playerSubject = GameObject.Find("Player").GetComponent<Player>().playerSubject;
-        entityPool = GeneratePoolEntities(entityPrefabs[0], 40);
+        entityPool = GeneratePoolEntities(entityPrefabs[0], 300);
     }
 
     // Update is called once per frame
