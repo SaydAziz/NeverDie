@@ -49,15 +49,44 @@ public class EnemySpawner: Spawner
 
     protected override List<GameObject> GeneratePoolEntities(GameObject entity, int numOfEntities)
     {
+        Debug.Log("Generating Pool");
         List<GameObject> entityPool = new List<GameObject>();
+        PopulatePool(entityPool, entity, numOfEntities);
+        return entityPool;
+    }
+
+    protected override void PopulatePool(List<GameObject> pool, GameObject entity, int numOfEntities)
+    {
         for (int i = 0; i < numOfEntities; i++)
         {
             GameObject go = Instantiate(entity);
             go.transform.parent = this.transform;
             go.GetComponent<Enemy>().player = playerSubject;
             go.SetActive(false);
-            entityPool.Add(go);
+            pool.Add(go);
         }
-        return entityPool;
+    }
+
+    protected override GameObject RequestEntity(int entityID) 
+    {
+        foreach (GameObject go in entityPool)
+        {
+            if (go.activeInHierarchy == false)
+            {
+                go.SetActive(true);
+                return go;
+            }
+        }
+
+        PopulatePool(entityPool, entityPool[0], 50);
+
+
+        //GameObject newEntity = Instantiate(entityPrefabs[entityID]);
+        //newEntity.transform.parent = this.transform;
+        //entityPool.Add(newEntity);
+        GameObject newEntity = entityPool[entityPool.Count - 1];
+        newEntity.SetActive(true);
+        
+        return newEntity;
     }
 }

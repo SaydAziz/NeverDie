@@ -32,11 +32,11 @@ public abstract class Spawner : MonoBehaviour
             GameObject go = Instantiate(entity);
             go.transform.parent = this.transform;
             go.SetActive(false);
-            entityPool.Add(go);
+            pool.Add(go);
         }
     }
 
-    protected GameObject RequestEntity(int entityID) 
+    protected virtual GameObject RequestEntity(int entityID) 
     {
         foreach (GameObject go in entityPool)
         {

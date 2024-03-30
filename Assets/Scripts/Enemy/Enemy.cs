@@ -46,7 +46,7 @@ public class Enemy: MonoBehaviour, IDamageable
             if (agent.isActiveAndEnabled)
             {
                 playerLoc.x = player.locX;
-                playerLoc.y = player.locY;
+                playerLoc.z = player.locY;
                 agent.SetDestination(playerLoc);
             } 
         }
