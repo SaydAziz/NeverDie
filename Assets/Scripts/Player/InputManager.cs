@@ -1,17 +1,16 @@
 using System;
-using UnityEngine.InputSystem;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 
 [RequireComponent(typeof(PlayerInput))]
 public class InputManager : MonoBehaviour
 {
     [SerializeField] PlayerController controller;
-    [SerializeField] TrinketManager tManager;
 
     private void Update()
     {
-        tManager.UpdateCursorPos(Input.mousePosition);
+        controller.UpdateCursorPos(Input.mousePosition);
     }
 
     public void RegisterNumber(InputAction.CallbackContext context)

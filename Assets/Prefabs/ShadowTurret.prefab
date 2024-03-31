@@ -22,7 +22,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f3b374b4c4ae3ff4ba750324a573ad80, type: 2}
     - target: {fileID: 4658591348017399143, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 11.3148575
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4658591348017399143, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4658591348017399143, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.0235746
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4658591348017399143, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60,15 +60,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5509592393575687349, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 6595524232807942796, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
       propertyPath: m_Name
       value: ShadowTurret
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 1128021614034010314, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
-    - {fileID: 5303472035210359365, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
-    - {fileID: 3572044445202716319, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
-    - {fileID: 3458877101199240933, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
+    - {fileID: 5542305500691603794, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
+    - {fileID: 553489073143913328, guid: 9f8e04f53a9aeb142bcbefafa53134b0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

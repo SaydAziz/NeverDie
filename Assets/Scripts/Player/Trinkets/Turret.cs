@@ -4,38 +4,29 @@ using UnityEngine;
 
 public class Turret : Trinket 
 {
-    [SerializeField] protected GameObject bulletPrefab;
     [SerializeField] protected GameObject turretPivot;
     [SerializeField] protected Transform bulletSpawn;
     [SerializeField] protected SphereCollider range;
-    [SerializeField] protected float damage = 10;
-    [SerializeField] protected float fireRate = 5f;
+    
+    [SerializeField] protected TurretData data;
 
 
-    protected LayerMask targetMask;
     protected GameObject target;
     private Vector3 targetPos;
     protected bool canShoot = true;
     private Collider[] shootQueue;
 
-    protected void Awake()
-    {
-        trinketPrice = 50;
-    }
-
     // Start is called before the first frame update
-    protected override void Start()
+    protected void Start()
     {       
-        range.radius = trinketRange;
-        targetMask = LayerMask.GetMask("Enemy");
-        base.Start();
+        range.radius = data.trinketRange;
     }
 
     void FixedUpdate()
     {
         if (target == null)
         {
-            shootQueue = Physics.OverlapSphere(transform.position, trinketRange, targetMask);
+            shootQueue = Physics.OverlapSphere(transform.position, data.trinketRange, data.targetMask);
         }
 
         if (shootQueue.Length > 0)
@@ -57,14 +48,19 @@ public class Turret : Trinket
 
     protected virtual void Shoot()
     {
-        GameObject currentBullet = Instantiate(bulletPrefab, bulletSpawn);
-        currentBullet.GetComponent<Projectile>().Initialize(target, damage);
+        GameObject currentBullet = Instantiate(data.bulletPrefab, bulletSpawn);
+        currentBullet.GetComponent<Projectile>().Initialize(target, data.damage);
         canShoot = false;
-        Invoke("ResetShot", fireRate * 0.1f);
+        Invoke("ResetShot", data.fireRate * 0.1f);
     }
 
     protected virtual void ResetShot()
     {
         canShoot = true;
+    }
+
+    public override GameObject GetShadow()
+    {
+        return data.shadowPrefab;
     }
 }

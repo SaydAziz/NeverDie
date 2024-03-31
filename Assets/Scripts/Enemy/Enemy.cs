@@ -8,7 +8,7 @@ public class Enemy: MonoBehaviour, IDamageable
     [SerializeField] NavMeshAgent agent;
     LayerMask playerMask;
 
-    public PlayerSubject player;
+    public PlayerBeacon player;
 
     //Stats
     [SerializeField] float health;

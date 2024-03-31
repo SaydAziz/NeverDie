@@ -7,7 +7,7 @@ public class EnemySpawner: Spawner
     [SerializeField] int crowdSpread;
     [SerializeField] int maxCrowd;
 
-    PlayerSubject playerSubject;
+    PlayerBeacon playerBeacon;
 
     //Spawner Values
     int crowdSize;
@@ -15,7 +15,7 @@ public class EnemySpawner: Spawner
     // Start is called before the first frame update
     void Start()
     {
-        playerSubject = GameObject.Find("Player").GetComponent<Player>().playerSubject;
+        playerBeacon = GameObject.Find("Player").GetComponent<Player>().playerBeacon;
         entityPool = GeneratePoolEntities(entityPrefabs[0], 300);
     }
 
@@ -61,7 +61,7 @@ public class EnemySpawner: Spawner
         {
             GameObject go = Instantiate(entity);
             go.transform.parent = this.transform;
-            go.GetComponent<Enemy>().player = playerSubject;
+            go.GetComponent<Enemy>().player = playerBeacon;
             go.SetActive(false);
             pool.Add(go);
         }

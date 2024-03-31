@@ -19,7 +19,6 @@ public class WaveManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         currentWave = 0;
         scaleFactor = 1;
         canSpawn = true;

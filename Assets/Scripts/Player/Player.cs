@@ -2,17 +2,18 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player: MonoBehaviour, IDamageable
+public class Player: Subject, IDamageable
 {
     public float health { get; private set; }
     public int coins { get; private set; }
     public int wood { get; private set; }
 
-    public PlayerSubject playerSubject { get; private set; }
+    public PlayerBeacon playerBeacon{ get; private set; }
+    public Vector3 cursorPos { get; set; }
 
     private void Awake()
     {
-        playerSubject = new PlayerSubject();
+        playerBeacon = new PlayerBeacon();
     }
 
     private void Start()
@@ -29,8 +30,8 @@ public class Player: MonoBehaviour, IDamageable
             Die();
         }
 
-        playerSubject.locX = transform.position.x;
-        playerSubject.locY = transform.position.z;
+        playerBeacon.locX = transform.position.x;
+        playerBeacon.locY = transform.position.z;
     }
 
     public void TakeDamage(float damage)
@@ -49,9 +50,9 @@ public class Player: MonoBehaviour, IDamageable
         wood += amount;
     }
 
-    public bool Purchase()
+    public void Purchase()
     {
-        return false;
+        NotifyObservers();
     }
 
     public void Die()
