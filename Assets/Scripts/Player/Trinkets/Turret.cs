@@ -6,7 +6,6 @@ public class Turret : Trinket
 {
     [SerializeField] protected GameObject turretPivot;
     [SerializeField] protected Transform bulletSpawn;
-    [SerializeField] protected SphereCollider range;
     
     [SerializeField] protected TurretData data;
 
@@ -15,12 +14,6 @@ public class Turret : Trinket
     private Vector3 targetPos;
     protected bool canShoot = true;
     private Collider[] shootQueue;
-
-    // Start is called before the first frame update
-    protected void Start()
-    {       
-        range.radius = data.trinketRange;
-    }
 
     void FixedUpdate()
     {

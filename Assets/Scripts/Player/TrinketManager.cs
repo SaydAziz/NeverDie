@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TrinketManager : MonoBehaviour
+public class TrinketManager : MonoBehaviour, IObserver
 {
     Player player;
     [SerializeField] GameObject[] trinketPrefabs;
@@ -19,6 +19,7 @@ public class TrinketManager : MonoBehaviour
     {
         player = GetComponentInParent<Player>();
         cam = Camera.main;
+        player.AddObserver(this);
 
         for(int i = 0; i < trinketPrefabs.Length; i++)
         {
@@ -48,5 +49,10 @@ public class TrinketManager : MonoBehaviour
     public void Place()
     {
         Instantiate(trinketPrefabs[selectedTrinket], trinketShadows[selectedTrinket].transform.position, UnityEngine.Quaternion.identity);
+    }
+
+    public void OnNotify()
+    {
+        Place();
     }
 }
