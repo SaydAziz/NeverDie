@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveManager : MonoBehaviour
+public class WaveManager : UISubject
 {
 
     [SerializeField] private List<Spawner> spawners = new List<Spawner>();
@@ -20,9 +20,11 @@ public class WaveManager : MonoBehaviour
     void Start()
     {
         currentWave = 0;
-        scaleFactor = 1;
+        //scaleFactor = 2;
         canSpawn = true;
         inWave = false;
+
+        spawners[1].SpawnEntity();
 
         Invoke("StartWave", downTime);
     }
@@ -50,6 +52,8 @@ public class WaveManager : MonoBehaviour
     {
         inWave = false;
         currentWave++;
+        NotifyUIObservers(1, currentWave);
+        spawners[1].SpawnEntity();
         spawnInterval = spawnInterval * Mathf.Pow(scaleFactor, -currentWave); 
         Invoke("StartWave", downTime);
     }

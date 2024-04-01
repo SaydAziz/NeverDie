@@ -18,4 +18,8 @@ public class Fountain : Trinket
     {
         return data.trinketCoinPrice;
     }
+    public override int GetWoodPrice()
+    {
+        return data.trinketWoodPrice;
+    }
 }

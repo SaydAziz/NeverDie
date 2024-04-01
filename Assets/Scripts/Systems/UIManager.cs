@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour, IUIObserver
 {
     [SerializeField] Player player;
+    [SerializeField] WaveManager waveManager;
+
     [SerializeField] TMP_Text coins;
     [SerializeField] TMP_Text wood;
     [SerializeField] TMP_Text wave;
@@ -32,9 +34,10 @@ public class UIManager : MonoBehaviour, IUIObserver
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         player.AddUIObserver(this);
+        waveManager.AddUIObserver(this);
     }
 
     // Update is called once per frame

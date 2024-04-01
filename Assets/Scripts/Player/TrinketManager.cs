@@ -50,10 +50,12 @@ public class TrinketManager : MonoBehaviour, IObserver
 
     public void Place()
     {
-        int price = trinketPrefabs[selectedTrinket].GetComponent<Trinket>().GetCoinPrice();
-        if (player.coins - price >= 0)
+        int coin = trinketPrefabs[selectedTrinket].GetComponent<Trinket>().GetCoinPrice();
+        int wood = trinketPrefabs[selectedTrinket].GetComponent<Trinket>().GetWoodPrice();
+        if (player.coins - coin >= 0 && player.wood - wood >= 0)
         {
-            player.AddCoin(-price);
+            player.AddCoin(-coin);
+            player.AddWood(-wood);
             Instantiate(trinketPrefabs[selectedTrinket], trinketShadows[selectedTrinket].transform.position, UnityEngine.Quaternion.identity);
         }
     }

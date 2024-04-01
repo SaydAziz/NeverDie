@@ -15,7 +15,7 @@ public class Resource : MonoBehaviour
         if (player != null)
         {
             player.AddWood(amount);
-            Destroy(this.gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

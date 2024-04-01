@@ -7,4 +7,5 @@ public abstract class Trinket : MonoBehaviour
     
     public abstract GameObject GetShadow();
     public abstract int GetCoinPrice();
+    public abstract int GetWoodPrice();
 }

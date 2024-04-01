@@ -39,13 +39,18 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (targetEnemy.activeInHierarchy == false )
+        if (targetEnemy != null)
         {
-            return;
+            if (targetEnemy.activeInHierarchy == false)
+            {
+                targetEnemy = null;
+                return;
+            }
+            Vector3 targetLoc = new Vector3(targetEnemy.transform.position.x, transform.position.y, targetEnemy.transform.position.z);
+            transform.LookAt(targetLoc);
+            rb.velocity = transform.forward * projectileSpeed;
+
         }
-        Vector3 targetLoc = new Vector3 (targetEnemy.transform.position.x, transform.position.y, targetEnemy.transform.position.z);
-        transform.LookAt(targetLoc);
-        rb.velocity = transform.forward * projectileSpeed;
     }
 
     public void Initialize(GameObject target, int damage)

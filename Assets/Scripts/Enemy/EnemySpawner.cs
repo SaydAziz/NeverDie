@@ -24,15 +24,6 @@ public class EnemySpawner: Spawner
     {
         
     }
-    protected override Vector3 GetRandomLoc()
-    {
-        Vector3 colliderSize = spawnPerimeter.bounds.size;
-
-        float randX = Random.Range(-colliderSize.x / 2f, colliderSize.x / 2f);
-        float randZ = Random.Range(-colliderSize.z / 2f, colliderSize.z / 2f);
-
-        return spawnPerimeter.transform.position + new Vector3(randX, 0, randZ);
-    }
 
     public override void SpawnEntity()
     {
