@@ -48,7 +48,12 @@ public class TrinketManager : MonoBehaviour, IObserver
 
     public void Place()
     {
-        Instantiate(trinketPrefabs[selectedTrinket], trinketShadows[selectedTrinket].transform.position, UnityEngine.Quaternion.identity);
+        int price = trinketPrefabs[selectedTrinket].GetComponent<Trinket>().GetCoinPrice();
+        if (player.coins - price >= 0)
+        {
+            player.AddCoin(-price);
+            Instantiate(trinketPrefabs[selectedTrinket], trinketShadows[selectedTrinket].transform.position, UnityEngine.Quaternion.identity);
+        }
     }
 
     public void OnNotify()

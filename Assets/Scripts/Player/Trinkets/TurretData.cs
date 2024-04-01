@@ -3,11 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObject/TurretData")]
-public class TurretData : ScriptableObject 
+public class TurretData : TrinketData 
 {
-    public string trinketName;
-    public int trinketGoldPrice;
-    public int trinketWoodPrice;
     public float trinketRange;
     public GameObject bulletPrefab;
     public GameObject shadowPrefab;

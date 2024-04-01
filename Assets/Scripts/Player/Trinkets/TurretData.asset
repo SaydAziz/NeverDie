@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: TurretData
   m_EditorClassIdentifier: 
   trinketName: Turret
-  trinketGoldPrice: 50
+  trinketCoinPrice: 50
   trinketWoodPrice: 20
   trinketRange: 15
   bulletPrefab: {fileID: 3112550180195920876, guid: cbdd228173ac0984a899cd94a6e04ae8, type: 3}

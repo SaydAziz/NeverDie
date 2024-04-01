@@ -7,7 +7,7 @@ public class Turret : Trinket
     [SerializeField] protected GameObject turretPivot;
     [SerializeField] protected Transform bulletSpawn;
     
-    [SerializeField] protected TurretData data;
+    [SerializeField] protected new TurretData data;
 
 
     protected GameObject target;
@@ -24,30 +24,25 @@ public class Turret : Trinket
 
         if (target == null)
         {
-            Debug.Log("Target Null");
             shootQueue = Physics.OverlapSphere(transform.position, data.trinketRange, data.targetMask);
         }
         else if (target.activeInHierarchy == false)
         {
             target = null;
             shootQueue[0] = null;
+            return;
         }
 
         if (shootQueue.Length > 0)
         {
-            Debug.Log("Taget Exists");
             target = shootQueue[0].gameObject;
             targetPos = new Vector3(target.transform.position.x, turretPivot.transform.position.y, target.transform.position.z);
             turretPivot.transform.LookAt(targetPos);
 
-            if(canShoot)
+            if (canShoot)
             {
                 Shoot();
             }
-        }
-        else
-        {
-            target = null;
         }
     }
 
