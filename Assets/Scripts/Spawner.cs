@@ -36,12 +36,13 @@ public abstract class Spawner : MonoBehaviour
         }
     }
 
-    protected virtual GameObject RequestEntity(int entityID) 
+    protected virtual GameObject RequestEntity(int entityID, Vector3 location) 
     {
         foreach (GameObject go in entityPool)
         {
             if (go.activeInHierarchy == false)
             {
+                go.transform.position = location;
                 go.SetActive(true);
                 return go;
             }

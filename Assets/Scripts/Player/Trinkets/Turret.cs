@@ -13,17 +13,29 @@ public class Turret : Trinket
     protected GameObject target;
     private Vector3 targetPos;
     protected bool canShoot = true;
-    private Collider[] shootQueue;
+    [SerializeField] private Collider[] shootQueue;
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireSphere(transform.position, data.trinketRange);
+    }
 
     void FixedUpdate()
     {
+
         if (target == null)
         {
+            Debug.Log("Target Null");
             shootQueue = Physics.OverlapSphere(transform.position, data.trinketRange, data.targetMask);
+        }
+        else if (target.activeInHierarchy == false)
+        {
+            target = null;
+            shootQueue[0] = null;
         }
 
         if (shootQueue.Length > 0)
         {
+            Debug.Log("Taget Exists");
             target = shootQueue[0].gameObject;
             targetPos = new Vector3(target.transform.position.x, turretPivot.transform.position.y, target.transform.position.z);
             turretPivot.transform.LookAt(targetPos);

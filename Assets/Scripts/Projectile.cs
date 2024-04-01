@@ -9,7 +9,7 @@ public class Projectile : MonoBehaviour
     [SerializeField] Rigidbody rb;
 
     GameObject targetEnemy;
-    float projectileSpeed = 30;
+    float projectileSpeed = 60;
     float projectileDamage;
     float lifeTime = 3;
 
@@ -22,10 +22,18 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == targetEnemy)
+        if (targetEnemy != null)
         {
-            DoHit(other.GetComponent<Enemy>()); 
+            if (other.gameObject == targetEnemy)
+            {
+                DoHit(other.GetComponent<Enemy>());
+            }
         }
+        else
+        {
+            DoHit(other.GetComponent<Enemy>());
+        }
+
     }
 
     // Update is called once per frame
@@ -33,7 +41,11 @@ public class Projectile : MonoBehaviour
     {
         if (targetEnemy == null)
         {
-            Destroy(this.gameObject);
+            return;
+        }
+        else if (targetEnemy.activeInHierarchy == false )
+        {
+            targetEnemy = null;
         }
         Vector3 targetLoc = new Vector3 (targetEnemy.transform.position.x, transform.position.y, targetEnemy.transform.position.z);
         transform.LookAt(targetLoc);

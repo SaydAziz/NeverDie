@@ -42,8 +42,7 @@ public class EnemySpawner: Spawner
         for (int i = 0; i < crowdSize; i++)
         {
             spawnCenter += new Vector3(Random.Range(-crowdSpread, crowdSpread), 0, Random.Range(-crowdSpread, crowdSpread));
-            GameObject entity = RequestEntity(0);
-            entity.transform.position = spawnCenter;
+            GameObject entity = RequestEntity(0, spawnCenter);
         }
     }
 
@@ -67,12 +66,13 @@ public class EnemySpawner: Spawner
         }
     }
 
-    protected override GameObject RequestEntity(int entityID) 
+    protected override GameObject RequestEntity(int entityID, Vector3 location) 
     {
         foreach (GameObject go in entityPool)
         {
             if (go.activeInHierarchy == false)
             {
+                go.transform.position = location;
                 go.SetActive(true);
                 return go;
             }
