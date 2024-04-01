@@ -7,4 +7,5 @@ public abstract class TrinketData : ScriptableObject
     public string trinketName;
     public int trinketCoinPrice;
     public int trinketWoodPrice;
+    public GameObject shadowPrefab;
 }

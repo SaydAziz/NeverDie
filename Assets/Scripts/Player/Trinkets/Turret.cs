@@ -58,9 +58,12 @@ public class Turret : Trinket
     {
         canShoot = true;
     }
-
     public override GameObject GetShadow()
     {
         return data.shadowPrefab;
+    }
+    public override int GetCoinPrice()
+    {
+        return data.trinketCoinPrice;
     }
 }

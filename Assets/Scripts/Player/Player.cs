@@ -49,10 +49,14 @@ public class Player: Subject, IDamageable
     {
         wood += amount;
     }
+    public void SelectTrinket(int selection)
+    {
+        NotifyObservers(selection);
+    }
 
     public void Purchase()
     {
-        NotifyObservers();
+        NotifyObservers(0);
     }
 
     public void Die()

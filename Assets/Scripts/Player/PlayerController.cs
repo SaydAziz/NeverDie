@@ -46,6 +46,7 @@ public class PlayerController : MonoBehaviour
 
     public void SelectTrinket(int selection)
     {
+        player.SelectTrinket(selection);
     }
 
     public void DoClick()

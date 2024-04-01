@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "ScriptableObject/TurretData")]
-public class TurretData : TrinketData 
+[CreateAssetMenu(menuName = "ScriptableObject/FountainData")]
+public class FountainData : TrinketData 
 {
     public float trinketRange;
-    public GameObject bulletPrefab;
-    public float damage;
+    public float effectAmount;
     public float fireRate;
     public LayerMask targetMask;
 }

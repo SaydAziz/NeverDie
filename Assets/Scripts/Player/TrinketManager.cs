@@ -21,10 +21,13 @@ public class TrinketManager : MonoBehaviour, IObserver
         cam = Camera.main;
         player.AddObserver(this);
 
-        for(int i = 0; i < trinketPrefabs.Length; i++)
+        for (int i = 0; i < trinketPrefabs.Length; i++)
         {
-            trinketShadows[i] = Instantiate(trinketPrefabs[i].GetComponent<Trinket>().GetShadow());
+            trinketShadows[i] = Instantiate(trinketPrefabs[i].GetComponent<Trinket>().GetShadow(), this.gameObject.transform);
+            trinketShadows[i].SetActive(false);
         }
+
+        trinketShadows[0].SetActive(true);
 
         selectedTrinket = 0;
     }
@@ -34,7 +37,6 @@ public class TrinketManager : MonoBehaviour, IObserver
     {
         Vector3Int gridPos = grid.WorldToCell(player.cursorPos);
         trinketShadows[selectedTrinket].transform.position = grid.GetCellCenterWorld(gridPos);
-
     }
 
 
@@ -56,8 +58,13 @@ public class TrinketManager : MonoBehaviour, IObserver
         }
     }
 
-    public void OnNotify()
+    public void OnNotify(int id)
     {
-        Place();
+        if (id == 0) 
+        {
+            Place();
+            return;
+        }
+        SelectTrinket(id);
     }
 }
