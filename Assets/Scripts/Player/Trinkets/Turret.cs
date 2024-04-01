@@ -7,7 +7,7 @@ public class Turret : Trinket
     [SerializeField] protected GameObject turretPivot;
     [SerializeField] protected Transform bulletSpawn;
     
-    [SerializeField] protected new TurretData data;
+    [SerializeField] protected TurretData data;
 
 
     protected GameObject target;

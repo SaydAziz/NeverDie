@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Fountain : Trinket 
 {
-    [SerializeField] protected new FountainData data;
+    [SerializeField] protected FountainData data;
 
     private void Update()
     { 
