@@ -12,7 +12,7 @@ public class Enemy: MonoBehaviour, IDamageable
 
     //Stats
     [SerializeField] float health;
-    [SerializeField] float damage;
+    [SerializeField] int damage;
     [SerializeField] float attackCooldown;
     [SerializeField] float attackRange;
 
@@ -86,7 +86,7 @@ public class Enemy: MonoBehaviour, IDamageable
         canAttack = true;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         health -= damage;
     }

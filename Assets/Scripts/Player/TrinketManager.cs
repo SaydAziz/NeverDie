@@ -65,6 +65,9 @@ public class TrinketManager : MonoBehaviour, IObserver
             Place();
             return;
         }
-        SelectTrinket(id);
+        else if (id < 5)
+        {
+            SelectTrinket(id);
+        }
     }
 }

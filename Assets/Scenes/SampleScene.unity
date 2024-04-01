@@ -520,9 +520,9 @@ MonoBehaviour:
   m_HandleRect: {fileID: 0}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 100
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -561,7 +561,7 @@ RectTransform:
   - {fileID: 1701688955}
   - {fileID: 168377764}
   - {fileID: 408772968}
-  m_Father: {fileID: 561121819}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -631,38 +631,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!1 &561121818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 561121819}
-  m_Layer: 0
-  m_Name: Canvas
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &561121819
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561121818}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 165.86092, y: -198.79294, z: 126.118645}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 523705313}
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &595537266
 GameObject:
   m_ObjectHideFlags: 0
@@ -1772,6 +1740,7 @@ GameObject:
   - component: {fileID: 2068460574}
   - component: {fileID: 2068460575}
   - component: {fileID: 2068460577}
+  - component: {fileID: 2068460578}
   m_Layer: 0
   m_Name: Systems
   m_TagString: Untagged
@@ -1810,7 +1779,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 1565794655}
-  placer: {fileID: 0}
 --- !u!114 &2068460577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1829,6 +1797,23 @@ MonoBehaviour:
   downTime: 1
   spawnInterval: 2
   scaleFactor: 1.5
+--- !u!114 &2068460578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068460573}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 54db5901dcdbf7e4f99cec676d5e2675, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1565794655}
+  coins: {fileID: 1368353276}
+  wood: {fileID: 1701688956}
+  wave: {fileID: 168377765}
+  healthBar: {fileID: 408772969}
 --- !u!4 &6610078357489005589 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2160839315349572494, guid: 378f87886fed0ff4a944b775326b5d6f, type: 3}
@@ -1948,5 +1933,5 @@ SceneRoots:
   - {fileID: 2068460574}
   - {fileID: 1515291661}
   - {fileID: 9089300491414755931}
-  - {fileID: 561121819}
+  - {fileID: 523705313}
   - {fileID: 1094240040}

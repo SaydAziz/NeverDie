@@ -2,9 +2,11 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player: Subject, IDamageable
+public class Player: UISubject, IDamageable
 {
-    public float health { get; private set; }
+
+
+    public int health { get; private set; }
     public int coins { get; private set; }
     public int wood { get; private set; }
 
@@ -19,8 +21,11 @@ public class Player: Subject, IDamageable
     private void Start()
     {
         health = 100;
+        NotifyUIObservers(0, health);
         coins = 100;
+        NotifyUIObservers(2, coins);
         wood = 20;
+        NotifyUIObservers(3, wood);
     }
 
     private void FixedUpdate()
@@ -34,20 +39,23 @@ public class Player: Subject, IDamageable
         playerBeacon.locY = transform.position.z;
     }
 
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         Debug.Log("OUCH!!!");
         health -= damage;
+        NotifyUIObservers(0, health);
     }
 
     public void AddCoin(int amount)
     {
         coins += amount;
+        NotifyUIObservers(2, coins);
     }
 
     public void AddWood(int amount)
     {
         wood += amount;
+        NotifyUIObservers(3, wood);
     }
     public void SelectTrinket(int selection)
     {

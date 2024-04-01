@@ -9,8 +9,8 @@ public class Projectile : MonoBehaviour
     [SerializeField] Rigidbody rb;
 
     GameObject targetEnemy;
-    float projectileSpeed = 60;
-    float projectileDamage;
+    int projectileSpeed = 60;
+    int projectileDamage;
     float lifeTime = 3;
 
     // Start is called before the first frame update
@@ -48,7 +48,7 @@ public class Projectile : MonoBehaviour
         rb.velocity = transform.forward * projectileSpeed;
     }
 
-    public void Initialize(GameObject target, float damage)
+    public void Initialize(GameObject target, int damage)
     {
         targetEnemy = target;
         projectileDamage = damage;
