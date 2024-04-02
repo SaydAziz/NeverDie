@@ -70,6 +70,7 @@ public class Player: UISubject, IDamageable
 
     public void Die()
     {
+        NotifyObservers(30);
         Destroy(this.gameObject);
     }
 }
