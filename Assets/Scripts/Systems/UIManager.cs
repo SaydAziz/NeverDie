@@ -13,6 +13,7 @@ public class UIManager : MonoBehaviour, IUIObserver
     [SerializeField] TMP_Text coins;
     [SerializeField] TMP_Text wood;
     [SerializeField] TMP_Text wave;
+    [SerializeField] TMP_Text highScore;
     [SerializeField] Slider healthBar;
     public void NotifyUI(int id, int content)
     {
@@ -30,6 +31,9 @@ public class UIManager : MonoBehaviour, IUIObserver
             case 3:
                 wood.text = "Wood: " + content;
                 break;
+            case 4:
+                highScore.text = "High Score: " + content;
+                break;
         }
     }
 
@@ -38,6 +42,10 @@ public class UIManager : MonoBehaviour, IUIObserver
     {
         player.AddUIObserver(this);
         waveManager.AddUIObserver(this);
+    }
+    void Start()
+    {
+        highScore.text = " ";
     }
 
     // Update is called once per frame

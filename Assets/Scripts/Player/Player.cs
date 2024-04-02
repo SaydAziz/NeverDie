@@ -5,7 +5,6 @@ using UnityEngine.UI;
 public class Player: UISubject, IDamageable
 {
 
-
     public int health { get; private set; }
     public int coins { get; private set; }
     public int wood { get; private set; }

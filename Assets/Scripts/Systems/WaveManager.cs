@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WaveManager : UISubject
 {
+    int highScore;
 
     [SerializeField] private List<Spawner> spawners = new List<Spawner>();
 
@@ -43,6 +44,13 @@ public class WaveManager : UISubject
         }
     }
 
+    public void DisableWaves()
+    {
+        CancelInvoke();
+        canSpawn = false;
+        HighScoreCheck();
+    }
+
     void StartWave()
     {
         inWave = true;
@@ -60,5 +68,17 @@ public class WaveManager : UISubject
     void ResetSpawnInterval()
     {
         canSpawn = true;
+    }
+
+    void HighScoreCheck()
+    {
+        highScore = PlayerPrefs.GetInt("High Score");
+        if (currentWave > highScore)
+        {
+            highScore = currentWave;
+            PlayerPrefs.SetInt("High Score", highScore);
+            PlayerPrefs.Save();
+        }
+        NotifyUIObservers(4, highScore);
     }
 }

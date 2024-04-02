@@ -7,12 +7,14 @@ public class GameManager : MonoBehaviour, IObserver
 
     [SerializeField] Player player;
     [SerializeField] Menu pauseMenu;
+    [SerializeField] WaveManager waveManager;
 
     public static GameManager Instance;
 
 
     //Game State
     bool isPaused = false;
+    int highScore;
 
     private void Awake()
     {
@@ -36,7 +38,6 @@ public class GameManager : MonoBehaviour, IObserver
         player.AddCoin(value);
     }
 
-
     public void OnNotify(int id)
     {
         if (id == 30)
@@ -47,6 +48,8 @@ public class GameManager : MonoBehaviour, IObserver
 
     private void EndGame()
     {
+        waveManager.DisableWaves();
+
         Pause();
     }
 
