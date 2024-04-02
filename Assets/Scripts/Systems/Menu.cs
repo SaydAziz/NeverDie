@@ -24,4 +24,10 @@ public class Menu : MonoBehaviour
             Time.timeScale = 1.0f;
         }
     }
+
+    public void EnterMainMenu()
+    {
+        Time.timeScale = 1.0f;
+        SceneManager.LoadScene(0);
+    }
 }
