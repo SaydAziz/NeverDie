@@ -26,7 +26,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: f3b374b4c4ae3ff4ba750324a573ad80, type: 2}
     - target: {fileID: 3813607656450859871, guid: d50d19418650d1144aaf5a8d6463fc76, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3813607656450859871, guid: d50d19418650d1144aaf5a8d6463fc76, type: 3}
       propertyPath: m_LocalPosition.y
@@ -66,7 +66,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6039588450991258872, guid: d50d19418650d1144aaf5a8d6463fc76, type: 3}
       propertyPath: m_Name
-      value: HealFountain Variant
+      value: ShadowHealFountain
       objectReference: {fileID: 0}
     - target: {fileID: 7196377527184385571, guid: d50d19418650d1144aaf5a8d6463fc76, type: 3}
       propertyPath: m_Materials.Array.data[0]

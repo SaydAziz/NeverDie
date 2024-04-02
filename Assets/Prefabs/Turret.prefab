@@ -249,6 +249,7 @@ MonoBehaviour:
   turretPivot: {fileID: 6127068510691835323}
   bulletSpawn: {fileID: 6164182084667799509}
   data: {fileID: 11400000, guid: fa9085048fb07fe499973c95a3246aa2, type: 2}
+  shootQueue: []
 --- !u!208 &-4499421978861169382
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -313,7 +314,7 @@ Transform:
   m_GameObject: {fileID: 6716583663398051261}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7, z: 0}
+  m_LocalPosition: {x: 0, y: 0.65, z: 0}
   m_LocalScale: {x: 1, y: 0.17816965, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
