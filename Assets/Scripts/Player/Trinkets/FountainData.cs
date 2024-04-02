@@ -6,7 +6,6 @@ using UnityEngine;
 public class FountainData : TrinketData 
 {
     public float trinketRange;
-    public float effectAmount;
-    public float fireRate;
+    public int effectAmount;
     public LayerMask targetMask;
 }

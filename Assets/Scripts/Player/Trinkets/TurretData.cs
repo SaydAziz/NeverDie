@@ -8,6 +8,5 @@ public class TurretData : TrinketData
     public float trinketRange;
     public GameObject bulletPrefab;
     public int damage;
-    public float fireRate;
     public LayerMask targetMask;
 }

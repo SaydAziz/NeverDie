@@ -356,6 +356,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 875177473c1071a4b9c6f8e2e6dbfb0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effectRange: {fileID: 8366365729314106688}
   data: {fileID: 11400000, guid: 7b5b2d8d67c566947b9bb1bfc6e36ec1, type: 2}
 --- !u!1 &6576836785590349245
 GameObject:

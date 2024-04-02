@@ -43,6 +43,7 @@ public class Player: UISubject, IDamageable
     {
         Debug.Log("OUCH!!!");
         health -= damage;
+        health = Mathf.Clamp(health, 0, 100);
         NotifyUIObservers(0, health);
     }
 

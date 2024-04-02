@@ -12,8 +12,8 @@ public class Turret : Trinket
 
     protected GameObject target;
     private Vector3 targetPos;
-    protected bool canShoot = true;
     [SerializeField] private Collider[] shootQueue;
+
     private void OnDrawGizmos()
     {
         Gizmos.DrawWireSphere(transform.position, data.trinketRange);
@@ -54,10 +54,6 @@ public class Turret : Trinket
         Invoke("ResetShot", data.fireRate * 0.1f);
     }
 
-    protected virtual void ResetShot()
-    {
-        canShoot = true;
-    }
     public override GameObject GetShadow()
     {
         return data.shadowPrefab;
