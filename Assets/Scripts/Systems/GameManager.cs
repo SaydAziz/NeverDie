@@ -38,14 +38,6 @@ public class GameManager : MonoBehaviour, IObserver
         player.AddCoin(value);
     }
 
-    public void OnNotify(int id)
-    {
-        if (id == 30)
-        {
-            EndGame();
-        }
-    }
-
     private void EndGame()
     {
         waveManager.DisableWaves();
@@ -57,5 +49,16 @@ public class GameManager : MonoBehaviour, IObserver
     {
         isPaused = isPaused ? false : true;
         pauseMenu.ShowPauseMenu(isPaused);
+    }
+
+    public void OnNotify(PlayerState state)
+    {
+        if (state == PlayerState.Dead)
+        {
+            EndGame();
+        }
+    }
+    public void OnNotify(int id)
+    {
     }
 }

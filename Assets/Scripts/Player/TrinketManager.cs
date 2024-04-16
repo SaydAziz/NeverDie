@@ -5,6 +5,8 @@ using UnityEngine;
 public class TrinketManager : MonoBehaviour, IObserver
 {
     Player player;
+    PlayerState pState;
+
     [SerializeField] GameObject[] trinketPrefabs;
     [SerializeField] GameObject[] trinketShadows;
     [SerializeField] Grid grid;
@@ -60,16 +62,37 @@ public class TrinketManager : MonoBehaviour, IObserver
         }
     }
 
-    public void OnNotify(int id)
+    private void StateSwitch()
     {
-        if (id == 0) 
+        if (pState == PlayerState.Trinket)
         {
-            Place();
-            return;
+            trinketShadows[selectedTrinket].SetActive(true);
         }
-        else if (id < 5)
+        else
         {
-            SelectTrinket(id);
+            trinketShadows[selectedTrinket].SetActive(false);
         }
     }
+
+    public void OnNotify(int id)
+    {
+        if (pState == PlayerState.Trinket)
+        {
+            if (id == 0)
+            {
+                Place();
+                return;
+            }
+            else if (id < 5)
+            {
+                SelectTrinket(id);
+            }
+        }
+    }
+    public void OnNotify(PlayerState state)
+    {
+        pState = state;
+        StateSwitch();
+    }
+
 }

@@ -2,6 +2,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+public enum PlayerState
+{
+    Normal,
+    Trinket, 
+    Dead
+}
+
 public class Player: UISubject, IDamageable
 {
 
@@ -11,6 +18,7 @@ public class Player: UISubject, IDamageable
 
     public PlayerBeacon playerBeacon{ get; private set; }
     public Vector3 cursorPos { get; set; }
+    private PlayerState currentState;
 
     private void Awake()
     {
@@ -25,6 +33,9 @@ public class Player: UISubject, IDamageable
         NotifyUIObservers(2, coins);
         wood = 20;
         NotifyUIObservers(3, wood);
+
+        currentState = PlayerState.Normal;
+        NotifyObservers(currentState);
     }
 
     private void FixedUpdate()
@@ -59,7 +70,14 @@ public class Player: UISubject, IDamageable
     }
     public void SelectTrinket(int selection)
     {
+        currentState = PlayerState.Trinket;
+        NotifyObservers(currentState);
         NotifyObservers(selection);
+    }
+
+    public void TriggerNormalMode()
+    {
+        NotifyObservers(currentState);
     }
 
     public void Purchase()
@@ -69,7 +87,8 @@ public class Player: UISubject, IDamageable
 
     public void Die()
     {
-        NotifyObservers(30);
+        currentState = PlayerState.Dead;
+        NotifyObservers(currentState);
         Destroy(this.gameObject);
     }
 }
