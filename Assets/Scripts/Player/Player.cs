@@ -71,13 +71,16 @@ public class Player: UISubject, IDamageable
     public void SelectTrinket(int selection)
     {
         currentState = PlayerState.Trinket;
+        NotifyUIObservers(10, 1);
         NotifyObservers(currentState);
         NotifyObservers(selection);
     }
 
     public void TriggerNormalMode()
     {
+        currentState = PlayerState.Normal;
         NotifyObservers(currentState);
+        NotifyUIObservers(10, 0);
     }
 
     public void Purchase()

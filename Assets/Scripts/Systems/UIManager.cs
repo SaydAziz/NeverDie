@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -14,6 +15,7 @@ public class UIManager : MonoBehaviour, IUIObserver
     [SerializeField] TMP_Text wood;
     [SerializeField] TMP_Text wave;
     [SerializeField] TMP_Text highScore;
+    [SerializeField] GameObject trinketMenu;
     [SerializeField] Slider healthBar;
     public void NotifyUI(int id, int content)
     {
@@ -34,9 +36,14 @@ public class UIManager : MonoBehaviour, IUIObserver
             case 4:
                 highScore.text = "High Score: " + content;
                 break;
+            case 10:
+                trinketMenu.SetActive(Convert.ToBoolean(content));
+                break;
+;
         }
     }
 
+    
     // Start is called before the first frame update
     void Awake()
     {
