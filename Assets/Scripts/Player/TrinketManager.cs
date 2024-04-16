@@ -6,12 +6,13 @@ public class TrinketManager : MonoBehaviour, IObserver
 {
     Player player;
     PlayerState pState;
+    LayerMask placeLayer;
 
     [SerializeField] GameObject[] trinketPrefabs;
     [SerializeField] GameObject[] trinketShadows;
     [SerializeField] Grid grid;
-    Camera cam;
-    LayerMask placeLayer;
+
+    Vector3 cursorPos;
 
     //Trinket values
     int selectedTrinket;
@@ -20,8 +21,9 @@ public class TrinketManager : MonoBehaviour, IObserver
     void Start()
     {
         player = GetComponentInParent<Player>();
-        cam = Camera.main;
         player.AddObserver(this);
+
+        placeLayer = LayerMask.GetMask("Place");
 
         for (int i = 0; i < trinketPrefabs.Length; i++)
         {
@@ -37,7 +39,12 @@ public class TrinketManager : MonoBehaviour, IObserver
     // Update is called once per frame
     void Update()
     {
-        Vector3Int gridPos = grid.WorldToCell(player.cursorPos);
+        RaycastHit hit;
+        Physics.Raycast(player.mouseRay, out hit, 100, placeLayer);
+
+        cursorPos = hit.point;
+
+        Vector3Int gridPos = grid.WorldToCell(cursorPos);
         trinketShadows[selectedTrinket].transform.position = grid.GetCellCenterWorld(gridPos);
     }
 

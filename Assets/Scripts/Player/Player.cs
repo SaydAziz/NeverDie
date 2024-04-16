@@ -17,8 +17,11 @@ public class Player: UISubject, IDamageable
     public int wood { get; private set; }
 
     public PlayerBeacon playerBeacon{ get; private set; }
-    public Vector3 cursorPos { get; set; }
-    private PlayerState currentState;
+    public Ray mouseRay { get; set; }
+    public PlayerState currentState { get; private set; }
+
+    [SerializeField] LayerMask trinketLayer;
+    
 
     private void Awake()
     {
@@ -86,6 +89,16 @@ public class Player: UISubject, IDamageable
     public void Purchase()
     {
         NotifyObservers(0);
+    }
+    public void ViewTrinket(Camera cam)
+    {
+        RaycastHit hit;
+        Physics.Raycast(mouseRay, out hit, 100, trinketLayer);
+
+        if (hit.collider != null)
+        {
+            hit.collider.gameObject.SetActive(false);
+        }
     }
 
     public void Die()
