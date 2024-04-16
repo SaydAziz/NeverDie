@@ -19,6 +19,7 @@ public class Player: UISubject, IDamageable
     public PlayerBeacon playerBeacon{ get; private set; }
     public Ray mouseRay { get; set; }
     public PlayerState currentState { get; private set; }
+    public Trinket focusedTrinket { get; private set; }
 
     [SerializeField] LayerMask trinketLayer;
     
@@ -90,6 +91,13 @@ public class Player: UISubject, IDamageable
     {
         NotifyObservers(0);
     }
+
+    public void UpgradeTrinket()
+    {
+        focusedTrinket.Upgrade();
+        NotifyUIObservers(focusedTrinket);
+    }
+
     public void ViewTrinket(Camera cam)
     {
         RaycastHit hit;
@@ -97,8 +105,14 @@ public class Player: UISubject, IDamageable
 
         if (hit.collider != null)
         {
-            hit.collider.gameObject.SetActive(false);
+            focusedTrinket = hit.collider.gameObject.GetComponent<Trinket>();
+            NotifyUIObservers(focusedTrinket);
         }
+        //else
+        //{
+        //    focusedTrinket = null;
+        //    NotifyUIObservers(11, 0);
+        //}
     }
 
     public void Die()

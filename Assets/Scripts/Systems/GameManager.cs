@@ -51,6 +51,14 @@ public class GameManager : MonoBehaviour, IObserver
         pauseMenu.ShowPauseMenu(isPaused);
     }
 
+    public void UpgradeTrinket()
+    {
+        Debug.Log("Upgraded!!!!!!!");
+        player.UpgradeTrinket();
+    }
+
+
+
     public void OnNotify(PlayerState state)
     {
         if (state == PlayerState.Dead)
