@@ -53,6 +53,10 @@ public class PlayerController : MonoBehaviour
     {
         player.Purchase();
     }
+    public void ToggleTrinkets()
+    {
+        player.TriggerNormalMode();
+    }
 
     public void DoMovement(Vector2 value)
     {
