@@ -13069,7 +13069,7 @@ MonoBehaviour:
       - gameObject: {fileID: 8686395786422205235, guid: ed5c5ec34568b7f49a0c51f10cb82261, type: 3}
       - gameObject: {fileID: 5815317830614425115, guid: 1514e3d07e04d114194643ba825d938f, type: 3}
       selectedSlot: 0
-      selected: 0
+      selected: 1
       colorTag: 0
       customPreviewImage: {fileID: 0}
     - name: Fern_01
@@ -13699,7 +13699,7 @@ MonoBehaviour:
       - gameObject: {fileID: 0}
       - gameObject: {fileID: 0}
       selectedSlot: 0
-      selected: 1
+      selected: 0
       colorTag: 0
       customPreviewImage: {fileID: 0}
     levelsGamma: 1
