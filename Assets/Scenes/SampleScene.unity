@@ -47005,6 +47005,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1313843027}
     - target: {fileID: 2932657161023624262, guid: 378f87886fed0ff4a944b775326b5d6f, type: 3}
+      propertyPath: trinketPrefabs.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932657161023624262, guid: 378f87886fed0ff4a944b775326b5d6f, type: 3}
+      propertyPath: trinketShadows.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2932657161023624262, guid: 378f87886fed0ff4a944b775326b5d6f, type: 3}
+      propertyPath: trinketPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 6595524232807942796, guid: 4f6469b3acdad8d40b287b2b93787a6b, type: 3}
+    - target: {fileID: 2932657161023624262, guid: 378f87886fed0ff4a944b775326b5d6f, type: 3}
       propertyPath: trinketShadows.Array.data[0]
       value: 
       objectReference: {fileID: 0}
