@@ -10,21 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8ee5b9521f1feb9478335d846434bbba, type: 3}
-  m_Name: FountainData
+  m_Name: ChopperData
   m_EditorClassIdentifier: 
-  trinketName: Healer
-  trinketCoinUpgradePrice: 50
-  trinketWoodUpgradePrice: 15
-  trinketCoinPrice: 80
-  trinketWoodPrice: 30
-  maxLevel: 4
+  trinketName: Chopper
+  trinketCoinUpgradePrice: 200
+  trinketWoodUpgradePrice: 60
+  trinketCoinPrice: 250
+  trinketWoodPrice: 60
+  maxLevel: 3
   fireRate: 5
-  shadowPrefab: {fileID: 1157400925597464107, guid: 9e6101ca1cdff2249bdaa1daabe43606, type: 3}
+  shadowPrefab: {fileID: 355945683957661975, guid: eaef22ede97de9244bb03387c3f75f6c, type: 3}
   trinketRange: 3
-  effectAmount: 10
+  effectAmount: 5
   targetMask:
     serializedVersion: 2
     m_Bits: 8
-  effectHealth: 1
+  effectHealth: 0
   effectCoin: 0
-  effectWood: 0
+  effectWood: 1

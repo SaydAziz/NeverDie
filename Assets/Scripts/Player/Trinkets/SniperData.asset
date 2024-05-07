@@ -17,7 +17,7 @@ MonoBehaviour:
   trinketWoodUpgradePrice: 15
   trinketCoinPrice: 100
   trinketWoodPrice: 35
-  maxLevel: 5
+  maxLevel: 2
   fireRate: 4
   shadowPrefab: {fileID: 6410528429104179439, guid: 636307ebb836e8f4fa474eb2c52de530, type: 3}
   trinketRange: 45

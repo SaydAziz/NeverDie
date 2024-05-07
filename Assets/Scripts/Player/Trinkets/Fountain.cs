@@ -40,7 +40,18 @@ public class Fountain : Trinket
     }
     protected virtual void ApplyEffect()
     {
-        target.TakeDamage(-((FountainData)data).effectAmount);
+        if (((FountainData)data).effectHealth)
+        {
+            target.TakeDamage(-((FountainData)data).effectAmount);
+        }
+        if (((FountainData)data).effectCoin)
+        {
+            target.AddCoin(((FountainData)data).effectAmount);
+        }
+        if (((FountainData)data).effectWood)
+        {
+            target.AddWood(((FountainData)data).effectAmount);
+        }
         canShoot = false;
         Invoke("ResetShot", data.fireRate / trinketLevel);
     }
