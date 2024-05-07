@@ -105,4 +105,9 @@ public class Enemy: MonoBehaviour, IDamageable
         this.gameObject.SetActive(false);
         currentHealth = data.health;
     }
+
+    public float GetSpawnCost()
+    {
+        return data.spawnCost;
+    }
 }

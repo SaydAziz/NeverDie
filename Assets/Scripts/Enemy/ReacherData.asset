@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ReacherData
   m_EditorClassIdentifier: 
   damage: 5
+  spawnCost: 20
   health: 20
   attackCooldown: 4
   modelTimer: 0.1

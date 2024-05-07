@@ -530,7 +530,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entityPrefabs:
   - {fileID: 604047889017023055, guid: 6b7dad7f8d26a814f9c68b6e6f35bbf4, type: 3}
-  entityPool: []
   entityAmount: 20
   spawnPerimeter: {fileID: 137202589}
   spawnInterval: 0
@@ -4072,15 +4071,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   entityPrefabs:
-  - {fileID: 5636748204887964776, guid: d2b1297519e7a844697a74e183bdf5e4, type: 3}
-  - {fileID: 5636748204887964776, guid: 0497487ed5904b34ca4720bd26c45226, type: 3}
   - {fileID: 5636748204887964776, guid: acc9d677de36a9a4dae7b2b059a0e07f, type: 3}
-  entityPool: []
+  - {fileID: 5636748204887964776, guid: 0497487ed5904b34ca4720bd26c45226, type: 3}
+  - {fileID: 5636748204887964776, guid: d2b1297519e7a844697a74e183bdf5e4, type: 3}
   entityAmount: 300
   spawnPerimeter: {fileID: 1946572896}
   spawnInterval: 2
-  reacherPool: []
-  tankerPool: []
   crowdSpread: 5
   maxCrowd: 4
   willSpawn: 0

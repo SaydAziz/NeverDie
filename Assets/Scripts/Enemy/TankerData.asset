@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: TankerData
   m_EditorClassIdentifier: 
   damage: 40
+  spawnCost: 100
   health: 80
   attackCooldown: 5
   modelTimer: 0.3

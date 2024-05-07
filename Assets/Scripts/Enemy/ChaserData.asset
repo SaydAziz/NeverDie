@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ChaserData
   m_EditorClassIdentifier: 
   damage: 10
+  spawnCost: 0.5
   health: 10
   attackCooldown: 1
   modelTimer: 0.1

@@ -7,6 +7,7 @@ public class EnemyData : ScriptableObject
 {
 
     public int damage;
+    public float spawnCost;
     public float health;
     public float attackCooldown;
     public float modelTimer;

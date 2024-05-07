@@ -5,14 +5,25 @@ using UnityEngine;
 public abstract class Spawner : MonoBehaviour
 {
     [SerializeField] protected GameObject[] entityPrefabs;
-    [SerializeField] protected List<GameObject> entityPool;
+    //[SerializeField] protected List<GameObject> entityPool;
     [SerializeField] protected int entityAmount;
+
+    protected Dictionary<int , List<GameObject>> poolDict = new Dictionary<int , List<GameObject>>();
 
     [SerializeField] protected Collider spawnPerimeter;
 
     [SerializeField] protected float spawnInterval;
 
     protected bool canSpawn;
+
+    protected virtual void Start()
+    {
+        for (int i = 0; i < entityPrefabs.Length; i++)
+        {
+            poolDict.Add(i, GeneratePoolEntities(entityPrefabs[i], 50));
+        }
+        
+    }
 
     public abstract void SpawnEntity();
     protected virtual Vector3 GetRandomLoc()
@@ -44,7 +55,7 @@ public abstract class Spawner : MonoBehaviour
         }
     }
 
-    protected virtual GameObject RequestEntity(Vector3 location) 
+    protected virtual GameObject RequestEntity(Vector3 location, List<GameObject> entityPool) 
     {
         foreach (GameObject go in entityPool)
         {
