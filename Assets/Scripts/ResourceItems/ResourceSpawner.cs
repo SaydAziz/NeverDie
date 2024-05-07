@@ -20,7 +20,6 @@ public class ResourceSpawner : Spawner
                     go.SetActive(true);
                 }
             }
-
         }
     }
 }

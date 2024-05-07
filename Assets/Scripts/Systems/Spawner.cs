@@ -16,24 +16,42 @@ public abstract class Spawner : MonoBehaviour
 
     protected bool canSpawn;
 
+    LayerMask enviroLayer;
+
     protected virtual void Start()
     {
+        enviroLayer = LayerMask.GetMask("Environment");
         for (int i = 0; i < entityPrefabs.Length; i++)
         {
             poolDict.Add(i, GeneratePoolEntities(entityPrefabs[i], 50));
         }
-        
     }
 
     public abstract void SpawnEntity();
     protected virtual Vector3 GetRandomLoc()
     {
+        bool validLoc = false;
+        Vector3 randLoc = new Vector3(0, 0, 0);
         Vector3 colliderSize = spawnPerimeter.bounds.size;
 
-        float randX = Random.Range(-colliderSize.x / 2f, colliderSize.x / 2f);
-        float randZ = Random.Range(-colliderSize.z / 2f, colliderSize.z / 2f);
+        while (!validLoc)
+        {
+            float randX = Random.Range(-colliderSize.x / 2f, colliderSize.x / 2f);
+            float randZ = Random.Range(-colliderSize.z / 2f, colliderSize.z / 2f);
 
-        return spawnPerimeter.transform.position + new Vector3(randX, 0, randZ);
+            randLoc = new Vector3(randX, 0, randZ);
+
+            Collider[] Overlaps = Physics.OverlapBox(randLoc, new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity, enviroLayer);
+            if (Overlaps.Length == 0 )
+            {
+                validLoc = true;
+            }
+        }
+
+
+
+
+        return spawnPerimeter.transform.position + randLoc;
     }
 
     protected virtual List<GameObject> GeneratePoolEntities(GameObject entity, int numOfEntities)

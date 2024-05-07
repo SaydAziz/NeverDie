@@ -52,8 +52,6 @@ public class TrinketManager : MonoBehaviour, IObserver
 
         Collider[] Overlaps = Physics.OverlapBox(grid.GetCellCenterWorld(gridPos), new Vector3(0.5f, 0.5f, 0.5f), Quaternion.identity, enviroLayer);
 
-        Debug.Log(Overlaps.Length);
-
         if (pState == PlayerState.Trinket)
         {
             if (Overlaps.Length == 0)
