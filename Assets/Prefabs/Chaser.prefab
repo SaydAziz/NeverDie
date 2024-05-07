@@ -43,7 +43,6 @@ GameObject:
   - component: {fileID: 1830683006033457535}
   - component: {fileID: 3379791686880352099}
   - component: {fileID: 8732511442385598131}
-  - component: {fileID: 5578439833435387640}
   m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
@@ -116,29 +115,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &5578439833435387640
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2181374635432696054}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000003
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: -0.0000008940697, y: 0, z: 0.0000001490117}
 --- !u!1 &5636748204887964776
 GameObject:
   m_ObjectHideFlags: 0
@@ -190,12 +166,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agent: {fileID: 7874426526856822165}
   attackModel: {fileID: 2181374635432696054}
-  health: 10
-  damage: 10
-  attackCooldown: 1
-  modelTimer: 0.1
-  attackRange: 3
-  moveSpeed: 5
+  data: {fileID: 11400000, guid: 277b5bacc8dc7364faea5cf1be8d8368, type: 2}
 --- !u!65 &735212102014901743
 BoxCollider:
   m_ObjectHideFlags: 0
