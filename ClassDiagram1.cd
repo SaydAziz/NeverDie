@@ -1,0 +1,220 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Enemy" BaseTypeListCollapsed="true">
+    <Position X="24.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAAiAABQAgAAAAACAIAIAEAARJAIAQgAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Enemy\Enemy.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="EnemyData">
+    <Position X="26.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEQAAgAAABAQAAAAACAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemyData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="EnemySpawner">
+    <Position X="14" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAYAAIAAQCAACgAAAAAAAAABAAAACEAIABAAAAAAAAI=</HashCode>
+      <FileName>Assets\Scripts\Enemy\EnemySpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager">
+    <Position X="22.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAAAAAEAAAAAAAoAAACAAABAAAAAEAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player">
+    <Position X="4.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAABAiEgAAAoIAACAAAAAgAACAAAIAAAgABACEg=</HashCode>
+      <FileName>Assets\Scripts\Player\Player.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="PlayerBeacon">
+    <Position X="2.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerBeacon.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PlayerController">
+    <Position X="2.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAgABAAAEiAAABAEgAAAAAAIAAAACAABABAAgAAAAEA=</HashCode>
+      <FileName>Assets\Scripts\Player\PlayerController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrinketManager" BaseTypeListCollapsed="true">
+    <Position X="20.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEQEAAAAoCJAAAAAAAAgAAAAAMAAAAABEEAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\TrinketManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Fountain">
+    <Position X="24.25" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAjAAAAACIAAgAQBABCAAAIAAUAAAAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Trinkets\Fountain.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FountainData">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAABAAAAAAQAAAAAAAAAAAUAAgAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Trinkets\FountainData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Trinket">
+    <Position X="22.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAABAAAAQCAAAggQBBBAAAAAAEAAAQAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Trinkets\Trinket.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TrinketData">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAKAgAAAAAAAAgAgAAAAIAACAAAAQAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Trinkets\TrinketData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Turret">
+    <Position X="21" Y="8.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAhAABAACMAAgAUBABAAAAAAAAAAwAAAABAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Trinkets\Turret.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TurretData">
+    <Position X="9.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAgAAAAAAAAAAAAAAAAAUAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Trinkets\TurretData.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Projectile">
+    <Position X="16.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAwAAAAAACAAQRAEAAAAAAAAAAAAEAAQQAAAAAQAAAA=</HashCode>
+      <FileName>Assets\Scripts\Projectile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Resource">
+    <Position X="15" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\ResourceItems\Resource.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ResourceSpawner">
+    <Position X="16" Y="7.5" Width="1.5" />
+    <InheritanceLine Type="Spawner" FixedToPoint="true">
+      <Path>
+        <Point X="15.75" Y="6.8" />
+        <Point X="15.75" Y="7.125" />
+        <Point X="16.812" Y="7.125" />
+        <Point X="16.812" Y="7.5" />
+      </Path>
+    </InheritanceLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\ResourceItems\ResourceSpawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Subject">
+    <Position X="5.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>Assets\Scripts\Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameManager" BaseTypeListCollapsed="true">
+    <Position X="12.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgQABAACAAAAAAAAACAAAAIgAAAAABQAAAgAAQKEA=</HashCode>
+      <FileName>Assets\Scripts\Systems\GameManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="MainMenu">
+    <Position X="13.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACIAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Systems\MainMenu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Menu">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAACAAAAAAAAAAAAAAAAAAAAAAAgAg=</HashCode>
+      <FileName>Assets\Scripts\Systems\Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Spawner">
+    <Position X="15" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAIEAAAAAGAAAgAAAAAAEAABgAAAAEAAAAAAAAAABAE=</HashCode>
+      <FileName>Assets\Scripts\Systems\Spawner.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UIManager" BaseTypeListCollapsed="true">
+    <Position X="18.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAQIABACAAAAAIACAAAAAAIAAAAAEHAAgAAAAQAEA=</HashCode>
+      <FileName>Assets\Scripts\Systems\UIManager.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="WaveManager">
+    <Position X="6.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EgAAAIQAAiAAAAAEKAAAAAACIAAAAAAAAAAEEBAABQA=</HashCode>
+      <FileName>Assets\Scripts\Systems\WaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="UISubject">
+    <Position X="5.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAQAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAQAAA=</HashCode>
+      <FileName>Assets\Scripts\UISubject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IDamageable">
+    <Position X="2.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\IDamageable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IObserver">
+    <Position X="2.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\IObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IUIObserver">
+    <Position X="2.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\IUIObserver.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Enum Name="PlayerState">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAACAAAgAA=</HashCode>
+      <FileName>Assets\Scripts\Player\Player.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

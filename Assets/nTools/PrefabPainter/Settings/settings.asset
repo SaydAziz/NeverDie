@@ -12759,8 +12759,8 @@ MonoBehaviour:
       customPreviewImage: {fileID: 0}
     - name: Bush_tree_01
       settings:
-        brushRadius: 15.4
-        brushSpacing: 3.96
+        brushRadius: 3.5
+        brushSpacing: 0.83
         brushOverlapCheckMode: 0
         brushOverlapDistance: 0.5
         brushOverlapCheckObjects: 1

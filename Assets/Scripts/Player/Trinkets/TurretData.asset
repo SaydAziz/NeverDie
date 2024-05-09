@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: TurretData
   m_EditorClassIdentifier: 
   trinketName: Turret
-  trinketCoinUpgradePrice: 25
-  trinketWoodUpgradePrice: 5
+  trinketCoinUpgradePrice: 50
+  trinketWoodUpgradePrice: 10
   trinketCoinPrice: 50
   trinketWoodPrice: 20
   maxLevel: 3

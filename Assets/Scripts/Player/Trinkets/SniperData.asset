@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: SniperData
   m_EditorClassIdentifier: 
   trinketName: Sniper
-  trinketCoinUpgradePrice: 50
+  trinketCoinUpgradePrice: 200
   trinketWoodUpgradePrice: 15
-  trinketCoinPrice: 100
-  trinketWoodPrice: 35
+  trinketCoinPrice: 200
+  trinketWoodPrice: 50
   maxLevel: 2
   fireRate: 4
   shadowPrefab: {fileID: 6410528429104179439, guid: 636307ebb836e8f4fa474eb2c52de530, type: 3}
